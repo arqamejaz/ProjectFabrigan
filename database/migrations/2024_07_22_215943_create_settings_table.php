@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('aboutsh')->nullable();
             $table->string('contacth')->nullable();
             $table->string('contactsh')->nullable();
+            $table->string('producth')->nullable();
+            $table->string('productsh')->nullable();
             $table->string('bannercontact')->nullable();
             $table->string('bannermsg')->nullable();
             $table->string('banneremail')->nullable();
@@ -34,6 +36,8 @@ return new class extends Migration
             $table->string('footerinsta')->nullable();
             $table->string('footertwitter')->nullable();
             $table->string('footeryoutube')->nullable();
+            $table->string('LPVheading')->nullable();
+            $table->string('LPVdescription')->nullable();
             $table->timestamps();
         });
     }

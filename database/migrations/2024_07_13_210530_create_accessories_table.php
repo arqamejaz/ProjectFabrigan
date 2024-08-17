@@ -16,7 +16,8 @@ return new class extends Migration
         $table->string('name');
         $table->integer('order_no')->default(0);
         $table->text('description');
-        $table->string('images')->nullable();
+        $table->string('serviceImages')->nullable();
+        $table->string('sliderImages')->nullable();
         $table->timestamps();
     });
 }

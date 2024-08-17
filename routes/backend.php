@@ -12,6 +12,8 @@ use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\AccessoryController;
 use App\Http\Controllers\backend\CatalogueController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\WhyChooseUsController;
+use App\Models\WhyChooseUs;
 
 /* Backend admin panel Routes*/
 
@@ -25,6 +27,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/listmedia', [MediaController::class, 'index'])->name('admin.listmedia');
         Route::get('/listcatalogues', [CatalogueController::class, 'index'])->name('admin.listcatalogues');
         Route::get('/listsliders', [SliderController::class, 'index'])->name('admin.listsliders');
+        Route::get('/listwhychooseus', [WhyChooseUsController::class, 'index'])->name('admin.listwhychooseus');
 
         Route::get('/addaccessory', [AccessoryController::class, 'addnew'])->name('admin.addaccessory');
         Route::get('/addevent', [EventController::class, 'addnew'])->name('admin.addevent');
@@ -33,7 +36,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/addmedia', [MediaController::class, 'addnew'])->name('admin.addmedia');
         Route::get('/addcatalogue', [CatalogueController::class, 'addnew'])->name('admin.addcatalogue');
         Route::get('/addslider', [SliderController::class, 'addnew'])->name('admin.addslider');
-        Route::get('/addchooseus', [SliderController::class, 'addnew'])->name('admin.choose');
+        Route::get('/addwhychooseus', [WhyChooseUsController::class, 'addnew'])->name('admin.addwhychooseus');
 
         Route::get('/editaccessory/{id}', [AccessoryController::class, 'edit'])->name('admin.editaccessory');
         Route::get('/editcategory/{id}', [CategoryController::class, 'edit'])->name('admin.editcategory');
@@ -41,6 +44,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/editmedia/{id}', [MediaController::class, 'edit'])->name('admin.editmedia');
         Route::get('/editevent/{id}', [EventController::class, 'edit'])->name('admin.editevent');
         Route::get('/editslider/{id}', [sliderController::class, 'edit'])->name('admin.editslider');
+        Route::get('/editwhychooseus/{id}', [WhyChooseUsController::class, 'edit'])->name('admin.editwhychooseus');
 
         Route::post('/storeaccessory', [AccessoryController::class, 'store'])->name('accessory.store');
         Route::post('/storecategory', [CategoryController::class, 'store'])->name('category.store');
@@ -49,12 +53,14 @@ Route::prefix('admin')->group(function () {
         Route::post('/storeevent', [EventController::class, 'store'])->name('event.store');
         Route::post('/storeslider', [SliderController::class, 'store'])->name('slider.store');
         Route::post('/storecatalogue', [CatalogueController::class, 'store'])->name('catalogue.store');
+        Route::post('/storewcu', [WhyChooseUsController::class, 'store'])->name('whychooseus.store');
 
         Route::put('/updateaccessory/{id}', [AccessoryController::class, 'update'])->name('accessory.update');
         Route::put('/updatecategory/{id}', [CategoryController::class, 'update'])->name('category.update');
         Route::put('/updateproduct/{id}', [ProductController::class, 'update'])->name('product.update');
         Route::put('/updatemedia/{id}', [MediaController::class, 'update'])->name('media.update');
         Route::put('/updateevent/{id}', [EventController::class, 'update'])->name('event.update');
+        Route::put('/updatewhychooseus/{id}', [WhyChooseUsController::class, 'update'])->name('whychooseus.update');
         Route::put('/aboutus', [AboutController::class, 'update'])->name('aboutus.update');
         Route::put('/contactus', [ContactController::class, 'update'])->name('contactus.update');
         Route::put('/settings', [SettingsController::class, 'update'])->name('settings.update');
@@ -66,6 +72,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/deleteevent/{id}', [EventController::class, 'delete'])->name('event.delete');
         Route::delete('/deleteslider/{id}', [SliderController::class, 'delete'])->name('slider.delete');
         Route::delete('/deletecatalogue/{id}', [CatalogueController::class, 'delete'])->name('catalogue.delete');
+        Route::delete('/deletewcu/{id}', [WhyChooseUsController::class, 'delete'])->name('whychooseus.delete');
 
         Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
         Route::get('/aboutus', [AboutController::class, 'index'])->name('admin.aboutus');

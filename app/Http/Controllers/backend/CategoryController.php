@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
         return view('backend.category.listCategories', compact('categories'));
     }
-    public function Addnew()
+    public function addnew()
     {
         return view('backend.category.addCategory');
     }
@@ -27,35 +27,40 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'description' => 'nullable|string',
-            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Create and save the category
         $category = new Category();
         $category->name = $request->input('name');
-        $category->order_no = $request->input('order_no');
         $category->description = $request->input('description');
+        $category->order_no = $request->input('order_no');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads/categories'), $imageName);
-            $category->image = $imageName;
+        // Handle serviceImages upload
+         if ($request->hasFile('serviceImages')) {
+            $serviceImagePaths = [];
+            foreach ($request->file('serviceImages') as $serviceImage) {
+                $serviceImageName = time() . '-' . $serviceImage->getClientOriginalName();
+                $serviceImage->move(public_path('uploads/categories/serviceImages'), $serviceImageName);
+                $serviceImagePaths[] = $serviceImageName;
+            }
+            $category->serviceImages = implode(',', $serviceImagePaths); // Save as a comma-separated string
         }
 
-        if ($request->hasFile('images')) {
-            $imagePaths = [];
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/categories/'), $imageName);
-                $imagePaths[] = $imageName;
-            }
-            $category->images = implode(',', $imagePaths);
+       // Handle sliderImages upload
+       if ($request->hasFile('sliderImages')) {
+        $imagePaths = [];
+        foreach ($request->file('sliderImages') as $image) {
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/categories/sliderImages'), $imageName);
+            $imagePaths[] = $imageName;
+        }
+        $category->sliderImages = implode(',', $imagePaths);
         }
         $category->save();
 
-        return redirect()->route('admin.listCategories')->with('success', 'Category added successfully.');
+        return redirect()->route('admin.listcategories')->with('success', 'Category added successfully.');
     }
 
     public function edit($id)
@@ -71,8 +76,9 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'order_no' => 'required|integer',
-            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImage.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Find the category
@@ -82,21 +88,28 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->description = $request->input('description');
         $category->order_no = $request->input('order_no');
+        $category->serviceImage= $request->input('serviceImage');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads/categories'), $imageName);
-            $category->image = $imageName;
-        }
-        if ($request->hasFile('images')) {
-            $imagePaths = [];
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/categories'), $imageName);
-                $imagePaths[] = $imageName;
+        // Handle serviceImages upload
+        if ($request->hasFile('serviceImages')) {
+            $serviceImagePaths = [];
+            foreach ($request->file('serviceImages') as $serviceImage) {
+                $serviceImageName = time() . '-' . $serviceImage->getClientOriginalName();
+                $serviceImage->move(public_path('uploads/accessories/serviceImages'), $serviceImageName);
+                $serviceImagePaths[] = $serviceImageName;
             }
-            $category->images = implode(',', $imagePaths);
+            $category->serviceImages = implode(',', $serviceImagePaths); // Save as a comma-separated string
+        }
+
+        // Handle sliderImages upload
+        if ($request->hasFile('sliderImages')) {
+        $imagePaths = [];
+        foreach ($request->file('sliderImages') as $image) {
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/accessories'), $imageName);
+            $imagePaths[] = $imageName;
+        }
+        $category->sliderImages = implode(',', $imagePaths);
         }
 
         $category->save();

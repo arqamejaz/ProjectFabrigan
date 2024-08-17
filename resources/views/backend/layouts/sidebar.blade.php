@@ -173,14 +173,14 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.choose') }}" class="nav-link">
+                    <a href="{{ route('admin.addwhychooseus') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Add Image</p>
+                        <p>Add WCU</p>
                         <i class="right fas fa-angle-left"></i>
                       </a>
-                      <a href="{{ route('admin.listsliders') }}" class="nav-link">
+                      <a href="{{ route('admin.listwhychooseus') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>List Images</p>
+                        <p>List WCU</p>
                         <i class="right fas fa-angle-left"></i>
                       </a>
                 </li>

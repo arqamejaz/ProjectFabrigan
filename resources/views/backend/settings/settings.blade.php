@@ -90,6 +90,17 @@
                         </div>
                     </div>
                     <div class="card-body shadow">
+                        <h3 class="card-title">Products:</h3><br>
+                        <div class="form-group">
+                            <label for="producth">Heading</label>
+                            <input type="text" id="producth" name="producth" class="form-control" value="{{ $settings->producth }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="productsh">Subheading</label>
+                            <input type="text" id="productsh" name="productsh" class="form-control" value="{{ $settings->productsh }}">
+                        </div>
+                    </div>
+                    <div class="card-body shadow">
                         <h3 class="card-title">Header Banner:</h3><br>
                         <div class="form-group">
                             <label for="bannercontact">Contact #</label>
@@ -122,9 +133,19 @@
                             <label for="footeryoutube">YouTube</label>
                             <input type="text" id="footeryoutube" name="footeryoutube" class="form-control" value="{{ $settings->footeryoutube }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
-                </div>
+                    <div class="card-body shadow">
+                        <h3 class="card-title">Landing Page Video:</h3><br>
+                        <div class="form-group">
+                            <label for="LPVheading">Heading</label>
+                            <input type="text" id="LPVheading" name="LPVheading" class="form-control" value="{{ $settings->LPVheading }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="LPVdescription">Description</label>
+                            <input type="text" id="LPVdescription" name="LPVdescription" class="form-control" value="{{ $settings->LPVdescription }}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
             </div>
         </div>
     </form>

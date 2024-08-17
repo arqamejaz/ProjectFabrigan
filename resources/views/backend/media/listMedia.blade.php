@@ -1,6 +1,6 @@
 @extends('backend.layouts.main')
 @section('title')
-    {{ 'List Cagegory' }}
+    {{ 'List Media' }}
 @endsection
 @section('main-container')
     <!-- Content Header (Page header) -->
@@ -32,7 +32,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Order #</th>
-                                        <th>Image</th>
+                                        <th>Video</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,8 +42,8 @@
                                             <td>{{ $media->name }}</td>
                                             <td>{{ $media->order_no }}</td>
                                             <td>
-                                                @if ($media->image)
-                                                    <img src="{{ asset('uploads/media/' . $media->image) }}" alt="Media Image" style="width: 100px; height: auto;">
+                                                @if ($media->video)
+                                                    <video src="{{ asset('uploads/media/videos/' . $media->video) }}" alt="Media Image" style="width: 100px; height: auto;"></video>
                                                 @endif
                                             </td>
                                             <td>

@@ -13,19 +13,19 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputDate">Date</label>
+                            <label for="inputDate">Date *:</label>
                             <input type="datetime-local" id="inputDate" name="date" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputLocation">Location</label>
+                            <label for="inputLocation">Location *:</label>
                             <input type="text" id="inputLocation" name="location" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputdescription">Description</label>
+                            <label for="inputdescription">Description *:</label>
                             <input type="text" id="inputdescription" name="description" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputOrderNo">Order Number</label>
+                            <label for="inputOrderNo">Order Number *:</label>
                             <input type="number" id="inputOrderNo" name="order_no" class="form-control" required>
                         </div>
                     </div>
@@ -33,9 +33,9 @@
                     <div class="card-body">
                         <div id="imageUploadFields">
                             <div class="form-group">
-                                <label for="inputImage">Upload Event Image</label>
+                                <label for="inputImage">Upload Event Image *:</label>
                                 <input type="file" id="inputImage" name="image" class="form-control-file"
-                                    accept="image/*">
+                                    accept="image/*" required>
                                 <div id="imagePreview" class="mt-2"></div>
                             </div>
                         </div>

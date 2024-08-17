@@ -14,7 +14,7 @@ class SliderController extends Controller
         $sliders = Slider::orderBy('order_no', 'asc')->get();
         return view('backend.slider.listSliders', compact('sliders'));
     }
-    public function Addnew(){
+    public function addnew(){
         return view('backend.slider.addSlider');
     }
 

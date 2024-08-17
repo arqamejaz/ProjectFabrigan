@@ -14,7 +14,7 @@ class CatalogueController extends Controller
 
         return view('backend.catalogue.listCatalogues', compact('catalogues'));
     }
-    public function Addnew()
+    public function addnew()
     {
         return view('backend.catalogue.addCatalogue');
     }

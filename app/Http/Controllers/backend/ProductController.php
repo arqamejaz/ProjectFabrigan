@@ -17,11 +17,9 @@ class ProductController extends Controller
 
         return view('backend.product.listProducts', compact('products'));
     }
-    public function Addnew()
+    public function addnew()
     {
-        $categories = Category::all(['id', 'name']);
-        $accessories = Accessory::all(['id', 'name']);
-        return view('backend.product.addProduct', compact('categories', 'accessories'));
+        return view('backend.product.addProduct');
     }
 
     public function store(Request $request)
@@ -30,9 +28,6 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
-            'type' => 'required|string',
-            'category_id' => 'nullable|exists:categories,id',
-            'accessory_id' => 'nullable|exists:accessories,id',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'images.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ]);
@@ -51,9 +46,6 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->input('name'),
             'order_no' => $request->input('order_no'),
-            'type' => $request->input('type'),
-            'category_id' => $request->input('type') == 'category' ? $request->input('category_id') : null,
-            'accessory_id' => $request->input('type') == 'accessory' ? $request->input('accessory_id') : null,
             'images' => implode(',', $imagePaths),
         ]);
 
@@ -65,16 +57,13 @@ class ProductController extends Controller
         }
         $product->save();
         // Return a response (e.g., redirect with a success message)
-        return redirect()->route('admin.listProducts')->with('success', 'Product created successfully.');
+        return redirect()->route('admin.listproducts')->with('success', 'Product created successfully.');
     }
 
     public function edit($id)
     {
-
-        $categories = Category::all(['id', 'name']);
-        $accessories = Accessory::all(['id', 'name']);
         $product = Product::findOrFail($id);
-        return view('backend.product.editProduct', compact('product', 'categories', 'accessories'));
+        return view('backend.product.editProduct', compact('product'));
     }
 
     public function update(Request $request, $id)
@@ -83,9 +72,6 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
-            'type' => 'required|string',
-            'category_id' => 'nullable|exists:categories,id',
-            'accessory_id' => 'nullable|exists:accessories,id',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'images.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ]);
@@ -105,9 +91,6 @@ class ProductController extends Controller
         // update the product
         $product->name = $request->input('name');
         $product->order_no = $request->input('order_no');
-        $product->type = $request->input('type');
-        $product->category_id = $request->input('type') == 'category' ? $request->input('category_id') : null;
-        $product->accessory_id = $request->input('type') == 'accessory' ? $request->input('accessory_id') : null;
         // Only update the images field if new images are uploaded
         if ($request->hasFile('uploads/products')) {
             $product->images = implode(',', $imagePaths);
@@ -121,7 +104,7 @@ class ProductController extends Controller
         }
         $product->save();
 
-        return redirect()->route('admin.listProducts')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.listproducts')->with('success', 'Product updated successfully.');
     }
 
     public function delete($id)
@@ -129,6 +112,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('admin.listProducts')->with('success', 'Product deleted successfully.');
+        return redirect()->route('admin.listproducts')->with('success', 'Product deleted successfully.');
     }
 }

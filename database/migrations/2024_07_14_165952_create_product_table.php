@@ -15,15 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('order_no')->default(0);
-            $table->enum('type', ['category', 'accessory']);
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('accessory_id')->nullable();
             $table->string('image')->nullable();
-            $table->string('images')->nullable();
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-            $table->foreign('accessory_id')->references('id')->on('accessories')->onDelete('set null');
 
         });
     }

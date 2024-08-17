@@ -13,15 +13,15 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputname">Catalogue Name</label>
+                            <label for="inputname">Catalogue Name *:</label>
                             <input type="text" id="inputname" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputOrderNo">Order Number</label>
+                            <label for="inputOrderNo">Order Number *:</label>
                             <input type="number" id="inputOrderNo" name="order_no" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="inputFile">Upload Catalogue (PDF only)</label>
+                            <label for="inputFile">Upload Catalogue (PDF only) *:</label>
                             <input type="file" id="inputFile" name="file" class="form-control-file" accept=".pdf" required>
                             <div id="filePreview" class="mt-2"></div>
                         </div>

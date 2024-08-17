@@ -13,25 +13,30 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="inputName">Heading</label>
+                        <label for="inputName">Heading *:</label>
                         <input type="text" id="inputName" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputOrderNo">Order Number</label>
+                        <label for="inputOrderNo">Order Number *:</label>
                         <input type="number" id="inputOrderNo" name="order_no" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <textarea id="inputDescription" name="description" class="form-control" rows="4"></textarea>
+                        <label for="inputDescription">Description *:</label>
+                        <textarea id="inputDescription" name="description" class="form-control" rows="4" required></textarea>
                     </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-body">
-                    <div id="imageUploadFields">
+                    <div id="videoUploadFields">
                         <div class="form-group">
-                            <label for="inputImage">Upload Media Image</label>
-                            <input type="file" id="inputImage" name="image" class="form-control-file" accept="image/*">
-                            <div id="imagePreview" class="mt-2"></div>
+                            <label for="inputVideo">Upload Media Video *:</label>
+                            <input type="file" id="inputVideo" name="video" class="form-control-file" accept="video/*" required>
+                            <div id="videoPreview" class="mt-2">
+                                <video controls id="videoPlayer" style="max-width: 15%; display: none;">
+                                    <source id="videoSource" src="">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,4 +51,18 @@
         </div>
     </div>
 </form>
+
+<script>
+    document.getElementById('inputVideo').addEventListener('change', function(event) {
+        const videoFile = event.target.files[0];
+        if (videoFile) {
+            const videoSource = document.getElementById('videoSource');
+            videoSource.src = URL.createObjectURL(videoFile);
+
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.style.display = 'block';
+            videoPlayer.load();
+        }
+    });
+</script>
 @endsection

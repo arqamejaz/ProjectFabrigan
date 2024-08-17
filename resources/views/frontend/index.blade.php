@@ -49,8 +49,8 @@
             <!-- Content on top of the video -->
             <div class="container-fluid text-center content-overlay">
                 <h3 class="video-banner-title h1 text-white">
-                    <span>New Collection</span>
-                    <strong>Fighting <i>/</i> Karata Suits</strong>
+                    <span>{{ $settings->LPVheading }}</span>
+                    <strong>{{ $settings->LPVdescription }}</strong>
                 </h3><!-- End .video-banner-title -->
 
             </div>
@@ -67,10 +67,10 @@
         <div class="container-fluid featured mt-4 pb-2">
             <div class="heading-more-container mb-2">
                 <div class="heading text-left">
-                    <h2 class="title instagram">Products</h2><!-- End .title -->
+                    <h2 class="title instagram">Featured Products</h2><!-- End .title -->
                 </div><!-- End .heading -->
                 <div class="more-container text-center">
-                    <a href="#" class="btn btn-outline-darker btn-more"><span>View All</span><i
+                    <a href="{{ url("/products") }}" class="btn btn-outline-darker btn-more"><span>View All</span><i
                             class="icon-long-arrow-right"></i></a>
                 </div>
             </div>

@@ -15,7 +15,7 @@ class EventController extends Controller
 
         return view('backend.event.listEvents', compact('events'));
     }
-    public function Addnew()
+    public function addnew()
     {
         return view('backend.event.addEvent');
     }

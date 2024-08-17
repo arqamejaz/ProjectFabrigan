@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-lg-6 mb-2 mb-lg-0">
                             <h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
-                            <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                            <p class="mb-3">{{ $contact->contact_information }}</p>
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="contact-info">
@@ -62,7 +62,6 @@
                         </div><!-- End .col-lg-6 -->
                         <div class="col-lg-6">
                             <h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
-                            <p class="mb-2"> {{ $contact->contact_information }}</p>
 
                             <form action="#" class="contact-form mb-3">
                                 <div class="row">
@@ -103,7 +102,8 @@
 
                 </div><!-- End .container -->
                 <div class="container-fluid">
-                    <iframe src="{{ $contact->map_link }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div><!-- End #map -->
+                    <iframe src="{{ $contact->map_link }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div><!-- End #map -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 

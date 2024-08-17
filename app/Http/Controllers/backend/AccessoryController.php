@@ -27,7 +27,8 @@ class AccessoryController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'description' => 'nullable|string',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Note the `.*` to handle multiple files
+            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Create and save the accessory
@@ -36,19 +37,32 @@ class AccessoryController extends Controller
         $accessory->order_no = $request->input('order_no');
         $accessory->description = $request->input('description');
 
-        if ($request->hasFile('images')) {
+        // Handle serviceImages upload
+        if ($request->hasFile('serviceImages')) {
+            $serviceImagePaths = [];
+            foreach ($request->file('serviceImages') as $serviceImage) {
+                $serviceImageName = time() . '-' . $serviceImage->getClientOriginalName();
+                $serviceImage->move(public_path('uploads/accessories/serviceImages'), $serviceImageName);
+                $serviceImagePaths[] = $serviceImageName;
+            }
+            $accessory->serviceImages = implode(',', $serviceImagePaths); // Save as a comma-separated string
+        }
+
+        // Handle images upload
+        if ($request->hasFile('sliderImages')) {
             $imagePaths = [];
-            foreach ($request->file('images') as $image) {
+            foreach ($request->file('sliderImages') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
                 $image->move(public_path('uploads/accessories'), $imageName);
                 $imagePaths[] = $imageName;
             }
-            $accessory->images = implode(',', $imagePaths);
+            $accessory->sliderImages = implode(',', $imagePaths); // Save as a comma-separated string
         }
         $accessory->save();
 
         return redirect()->route('admin.listaccessories')->with('success', 'Accessory added successfully.');
     }
+
 
     public function edit($id)
     {
@@ -63,7 +77,8 @@ class AccessoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'order_no' => 'required|integer',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Find the accessory
@@ -74,16 +89,27 @@ class AccessoryController extends Controller
         $accessory->description = $request->input('description');
         $accessory->order_no = $request->input('order_no');
 
-        if ($request->hasFile('images')) {
-            $imagePaths = [];
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/accessories'), $imageName);
-                $imagePaths[] = $imageName;
+         // Handle serviceImages upload
+         if ($request->hasFile('serviceImages')) {
+            $serviceImagePaths = [];
+            foreach ($request->file('serviceImages') as $serviceImage) {
+                $serviceImageName = time() . '-' . $serviceImage->getClientOriginalName();
+                $serviceImage->move(public_path('uploads/accessories/serviceImages'), $serviceImageName);
+                $serviceImagePaths[] = $serviceImageName;
             }
-            $accessory->images = implode(',', $imagePaths);
+            $accessory->serviceImages = implode(',', $serviceImagePaths); // Save as a comma-separated string
         }
 
+        // Handle sliderImages upload
+        if ($request->hasFile('sliderImages')) {
+            $imagePaths = [];
+            foreach ($request->file('sliderImages') as $image) {
+                $imageName = time() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('uploads/accessories/sliderImages'), $imageName);
+                $imagePaths[] = $imageName;
+            }
+            $accessory->sliderImages = implode(',', $imagePaths);
+        }
         $accessory->save();
 
         return redirect()->route('admin.listaccessories')->with('success', 'Accessory updated successfully.');

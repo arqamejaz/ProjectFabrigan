@@ -16,7 +16,7 @@ class MediaController extends Controller
 
         return view('backend.media.listMedia', compact('media'));
     }
-    public function Addnew()
+    public function addnew()
     {
         return view('backend.media.addMedia');
     }
@@ -28,26 +28,28 @@ class MediaController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000', // Validate video file type and size
         ]);
 
         // Create and save the media
-        $media = new media();
+        $media = new Media(); // Assuming your model is named `Media`
         $media->name = $request->input('name');
         $media->order_no = $request->input('order_no');
         $media->description = $request->input('description');
 
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads/media'), $imageName);
-            $media->image = $imageName;
+        // Handle video upload
+        if ($request->hasFile('video')) {
+            $video = $request->file('video');
+            $videoName = time() . '_' . $video->getClientOriginalName();
+            $video->move(public_path('uploads/media/videos'), $videoName);
+            $media->video = $videoName; // Store only the filename in the database
         }
+
         $media->save();
 
         return redirect()->route('admin.listmedia')->with('success', 'Media added successfully.');
     }
+
 
     public function edit($id)
     {
@@ -62,7 +64,7 @@ class MediaController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'order_no' => 'required|integer',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000', // Validate video file type and size
         ]);
 
         // Find the media
@@ -73,16 +75,13 @@ class MediaController extends Controller
         $media->description = $request->input('description');
         $media->order_no = $request->input('order_no');
 
-        if ($request->hasFile('images')) {
-            $imagePaths = [];
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/media'), $imageName);
-                $imagePaths[] = $imageName;
-            }
-            $media->images = implode(',', $imagePaths);
+         // Handle video upload
+         if ($request->hasFile('video')) {
+            $video = $request->file('video');
+            $videoName = time() . '_' . $video->getClientOriginalName();
+            $video->move(public_path('uploads/media/videos'),$videoName);
         }
-
+        $media->video = $videoName;
         $media->save();
 
         return redirect()->route('admin.listMedia')->with('success', 'Media updated successfully.');

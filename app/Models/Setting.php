@@ -11,7 +11,8 @@ class Setting extends Model
     protected $fillable = [
         'accessoryh', 'accessorysh', 'categoryh', 'categorysh', 'catalogueh',
         'cataloguesh', 'mediah', 'mediash', 'eventh', 'eventsh', 'abouth',
-        'aboutsh', 'contacth', 'contactsh', 'bannercontact', 'bannermsg',
-        'banneremail', 'footerfb', 'footerinsta', 'footertwitter', 'footeryoutube'
+        'aboutsh', 'contacth', 'contactsh', 'producth', 'productsh', 'bannercontact', 'bannermsg',
+        'banneremail', 'footerfb', 'footerinsta', 'footertwitter', 'footeryoutube',
+        'LPVheading', 'LPVdescription'
     ];
 }
