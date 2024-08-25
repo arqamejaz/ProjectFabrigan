@@ -109,7 +109,7 @@
                                     <div class="product product-7">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src={{ asset('uploads/products/' . $product->image) }}
+                                                <img src={{ asset('uploads/products/'.$product->image) }}
                                                     alt="Product image" class="product-image">
                                             </a>
                                         </figure><!-- End .product-media -->

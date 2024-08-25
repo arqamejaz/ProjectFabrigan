@@ -29,25 +29,12 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'images.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ]);
-
-        // Handle file uploads
-        $imagePaths = [];
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/products'), $imageName);
-                $imagePaths[] = $imageName;
-            }
-        }
 
         // Create the product
-        $product = Product::create([
-            'name' => $request->input('name'),
-            'order_no' => $request->input('order_no'),
-            'images' => implode(',', $imagePaths),
-        ]);
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->order_no = $request->input('order_no');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

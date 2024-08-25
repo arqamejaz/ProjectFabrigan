@@ -40,7 +40,7 @@ class SliderController extends Controller
         }
 
         // Redirect with a success message
-        return redirect()->route('admin.listSliders')->with('success', 'Slider added successfully.');
+        return redirect()->route('admin.listsliders')->with('success', 'Slider added successfully.');
     }
 
     public function delete($id)
@@ -48,6 +48,6 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->delete();
 
-        return redirect()->route('admin.listSliders')->with('success', 'Category deleted successfully.');
+        return redirect()->route('admin.listsliders')->with('success', 'Category deleted successfully.');
     }
 }

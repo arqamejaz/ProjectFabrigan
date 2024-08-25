@@ -50,7 +50,7 @@
                                             <td>
                                                 @if ($media->video)
                                                     {{-- <video src="{{ asset('uploads/media/videos/' . $media->video) }}" alt="Media Image" style="width: 100px; height: auto;"></video> --}}
-                                                    <iframe id="" src="https://player.vimeo.com/video/{{ $videoId }}" style="width: 40%; height: auto;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                                                    <iframe id="" src="https://player.vimeo.com/video/.{{ $videoId }}" style="width: 40%; height: auto;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                                                     allowfullscreen></iframe>
                                                 @endif
                                             </td>
