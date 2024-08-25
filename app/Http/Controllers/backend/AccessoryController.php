@@ -53,7 +53,7 @@ class AccessoryController extends Controller
             $imagePaths = [];
             foreach ($request->file('sliderImages') as $image) {
                 $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/accessories'), $imageName);
+                $image->move(public_path('uploads/accessories/sliderImages'), $imageName);
                 $imagePaths[] = $imageName;
             }
             $accessory->sliderImages = implode(',', $imagePaths); // Save as a comma-separated string

@@ -64,7 +64,7 @@ body{
 }
 
 .logo-desktop img {
-    max-width: 70px; /* Adjust the max-width value as needed */
+    max-width: 70px;
     height: auto;
 }
 
@@ -11021,6 +11021,25 @@ button:focus{
     .product-details-sidebar .details-action-col .btn-product{
         min-width:168px
     }
+}
+.dark-paragraph-about{
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: 'Poppins';
+    letter-spacing: 0;
+    color: black;
+    padding: 50px 100px 10px 100px;
+    text-align: justify;
+}
+.dark-paragraph{
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: 'Poppins';
+    letter-spacing: 0;
+    color: black;
+    padding: 0 50px 30px 50px;
 }
 .entry{
     position:relative;

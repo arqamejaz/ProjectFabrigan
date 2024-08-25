@@ -36,8 +36,12 @@ class ContactController extends Controller
         $contact->days = $request->days;
         $contact->map_link = $request->map_link;
 
+
         if ($request->hasFile('contact_page_image')) {
-            $contact->contact_page_image = $request->file('contact_page_image')->store('uploads', 'public');
+            $image = $request->file('contact_page_image');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/contactus'), $imageName);
+            $contact->contact_page_image = $imageName;
         }
 
         $contact->save();

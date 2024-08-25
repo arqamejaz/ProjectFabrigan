@@ -16,12 +16,14 @@
             <div class="swiper-wrapper">
                 @foreach (explode(',', $accessory->sliderImages) as $image)
                     <div class="swiper-slide">
+                        {{-- {{ dd($image) }} --}}
                         <img src="{{ asset('uploads/accessories/sliderImages/' . $image) }}" alt="{{ $accessory->name }}" class="product-image">
                     </div>
                 @endforeach
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            {{-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> --}}
         </div>
 
         <div class="page-content pb-3">

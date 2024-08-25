@@ -17,7 +17,7 @@
                         <label for="inputAboutImage">Upload About Image</label>
                         <input type="file" id="inputAboutImage" name="aboutimage" class="form-control-file" accept="image/*">
                         @if ($about && $about->image1)
-                            <img src="{{ asset('storage/' . $about->image1) }}" alt="About Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image1) }}" alt="About Image" class="img-fluid mt-2" style="width: 10%; height: auto">
                         @endif
                     </div>
 
@@ -35,7 +35,7 @@
                         <label for="inputImageDirector">Upload Image for Director's Message</label>
                         <input type="file" id="inputImageDirector" name="imagedirector" class="form-control-file" accept="image/*">
                         @if ($about && $about->image2)
-                            <img src="{{ asset('storage/' . $about->image2) }}" alt="Director's Message Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image2) }}" alt="Director's Message Image" class="img-fluid mt-2"  style="width: 10%; height: auto">
                         @endif
                     </div>
 
@@ -48,7 +48,7 @@
                         <label for="inputImageAbout">Upload Image for About</label>
                         <input type="file" id="inputImageAbout" name="imageabout" class="form-control-file" accept="image/*">
                         @if ($about && $about->image3)
-                            <img src="{{ asset('storage/' . $about->image3) }}" alt="About Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image3) }}" alt="About Image" class="img-fluid mt-2" style="width: 10%; height: auto">
                         @endif
                     </div>
 
@@ -61,7 +61,7 @@
                         <label for="inputImageJourney">Upload Image for Journey</label>
                         <input type="file" id="inputImageJourney" name="imagejourney" class="form-control-file" accept="image/*">
                         @if ($about && $about->image4)
-                            <img src="{{ asset('storage/' . $about->image4) }}" alt="Journey Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image4) }}" alt="Journey Image" class="img-fluid mt-2" style="width: 10%; height: auto">
                         @endif
                     </div>
 
@@ -74,7 +74,7 @@
                         <label for="inputImageVision">Upload Image for Vision</label>
                         <input type="file" id="inputImageVision" name="imagevision" class="form-control-file" accept="image/*">
                         @if ($about && $about->image5)
-                            <img src="{{ asset('storage/' . $about->image5) }}" alt="Vision Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image5) }}" alt="Vision Image" class="img-fluid mt-2" style="width: 10%; height: auto">
                         @endif
                     </div>
 
@@ -87,7 +87,7 @@
                         <label for="inputImageMission">Upload Image for Mission</label>
                         <input type="file" id="inputImageMission" name="imagemission" class="form-control-file" accept="image/*">
                         @if ($about && $about->image6)
-                            <img src="{{ asset('storage/' . $about->image6) }}" alt="Mission Image" class="img-fluid mt-2">
+                            <img src="{{ asset('uploads/aboutus/' . $about->image6) }}" alt="Mission Image" class="img-fluid mt-2" style="width: 10%; height: auto">
                         @endif
                     </div>
 

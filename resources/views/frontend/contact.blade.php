@@ -9,7 +9,7 @@
     <main class="main">
 
             <div class="container-fluid">
-                <div class="page-header page-header-big text-center" style="background-image: url('{{ asset('storage/' . $contact->contact_page_image) }}');">
+                <div class="page-header page-header-big text-center" style="background-image: url('{{ asset('uploads/contactus/' . $contact->contact_page_image) }}');">
                     <h1 class="page-title text-white">{{ $settings->contacth }}<span class="text-white">{{ $settings->contactsh }}</span></h1>
                 </div><!-- End .page-header -->
             </div><!-- End .container -->
@@ -19,8 +19,8 @@
                     <div class="row">
                         <div class="col-lg-6 mb-2 mb-lg-0">
                             <h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
-                            <p class="mb-3">{{ $contact->contact_information }}</p>
-                            <div class="row">
+                            {{ $contact->contact_information }}
+                            <div class="row mt-3">
                                 <div class="col-sm-7">
                                     <div class="contact-info">
                                         <h3>The Office</h3>

@@ -51,7 +51,7 @@
                     @endforeach
                 </div><!-- End .entry-container -->
 
-                <div class="entry-container row max-col-3">
+                <div class="entry-container row max-col-3 mt-10">
                     @foreach ($media as $item)
                         @if (!$item->featured)
                         @php

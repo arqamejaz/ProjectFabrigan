@@ -41,22 +41,45 @@ class AboutController extends Controller
         $about->mission = $request->mission;
 
         if ($request->hasFile('aboutimage')) {
-            $about->image1 = $request->file('aboutimage')->store('uploads', 'public');
+            $image = $request->file('aboutimage');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image1 = $imageName;
         }
+
         if ($request->hasFile('imagedirector')) {
-            $about->image2 = $request->file('imagedirector')->store('uploads', 'public');
+            $image = $request->file('imagedirector');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image2 = $imageName;
         }
+
         if ($request->hasFile('imageabout')) {
-            $about->image3 = $request->file('imageabout')->store('uploads', 'public');
+            $image = $request->file('imageabout');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image3 = $imageName;
         }
+
         if ($request->hasFile('imagejourney')) {
-            $about->image4 = $request->file('imagejourney')->store('uploads', 'public');
+            $image = $request->file('imagejourney');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image4 = $imageName;
         }
+
         if ($request->hasFile('imagevision')) {
-            $about->image5 = $request->file('imagevision')->store('uploads', 'public');
+            $image = $request->file('imagevision');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image5 = $imageName;
         }
+
         if ($request->hasFile('imagemission')) {
-            $about->image6 = $request->file('imagemission')->store('uploads', 'public');
+            $image = $request->file('imagemission');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/aboutus'), $imageName);
+            $about->image6 = $imageName;
         }
 
         $about->save();

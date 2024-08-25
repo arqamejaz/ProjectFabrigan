@@ -19,7 +19,7 @@
                                 name="contact_page_image">
                             @if ($contact && $contact->contact_page_image)
                                 <div class="mt-2">
-                                    <img src="{{ asset('storage/' . $contact->contact_page_image) }}" class="img-thumbnail"
+                                    <img src="{{ asset('uploads/contactus/' . $contact->contact_page_image) }}" class="img-thumbnail"
                                         width="200">
                                 </div>
                             @endif

@@ -38,7 +38,11 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '-' . $image->getClientOriginalName();
+
+            // Get the original name of the file, sanitize it by replacing spaces with underscores
+            $imageName = time() . '-' . preg_replace('/\s+/', '_', $image->getClientOriginalName());
+
+            // Move the file to the desired location
             $image->move(public_path('uploads/products'), $imageName);
             $product->image = $imageName;
         }
@@ -60,32 +64,23 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'images.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ]);
 
         // Find the product
         $product = Product::findOrFail($id);
 
-        // Handle file uploads
-        $imagePaths = [];
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/products'), $imageName);
-                $imagePaths[] = $imageName;
-            }
-        }
-        // update the product
+        // Create the product
         $product->name = $request->input('name');
         $product->order_no = $request->input('order_no');
-        // Only update the images field if new images are uploaded
-        if ($request->hasFile('uploads/products')) {
-            $product->images = implode(',', $imagePaths);
-        }
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '-' . $image->getClientOriginalName();
+
+            // Get the original name of the file, sanitize it by replacing spaces with underscores
+            $imageName = time() . '-' . preg_replace('/\s+/', '_', $image->getClientOriginalName());
+
+            // Move the file to the desired location
             $image->move(public_path('uploads/products'), $imageName);
             $product->image = $imageName;
         }

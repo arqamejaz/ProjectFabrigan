@@ -72,7 +72,7 @@ class MediaController extends Controller
     public function edit($id)
     {
         $media = Media::findOrFail($id);
-        return view('backend.media.editmedia', compact('media'));
+        return view('backend.media.editMedia', compact('media'));
     }
 
     public function update(Request $request, $id)
