@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AuthController;
+use App\Http\Controllers\PasswordController;
 
 Route::prefix('admin')->group(function () {
 
@@ -14,4 +15,6 @@ Route::prefix('admin')->group(function () {
     Route::post('password/email', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
     Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
     Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
+
+
 });

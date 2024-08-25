@@ -27,6 +27,16 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-body">
+                    <div id="imageUploadFields">
+                        <div class="form-group">
+                            <label for="inputLPImage">Upload Image for Landing Page *:</label>
+                            <input type="file" id="inputLPImage" name="LPImage" class="form-control-file"
+                                accept="image/*" required>
+                            <div id="imagePreview" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
                     <div id="serviceImageUploadFields">
                         <div class="form-group">
                             <label for="inputServiceImage">Upload Service Images *:</label>

@@ -32,18 +32,26 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Order #</th>
+                                        <th>Featured</th>
                                         <th>Video</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($media as $media)
+                                    @php
+                                        $parts = explode('/', $media->video);
+                                        $videoId = end($parts);
+                                    @endphp
                                         <tr>
                                             <td>{{ $media->name }}</td>
                                             <td>{{ $media->order_no }}</td>
+                                            <td>{{ ($media->featured ? 'Yes' : 'No') }}</td>
                                             <td>
                                                 @if ($media->video)
-                                                    <video src="{{ asset('uploads/media/videos/' . $media->video) }}" alt="Media Image" style="width: 100px; height: auto;"></video>
+                                                    {{-- <video src="{{ asset('uploads/media/videos/' . $media->video) }}" alt="Media Image" style="width: 100px; height: auto;"></video> --}}
+                                                    <iframe id="" src="https://player.vimeo.com/video/{{ $videoId }}" style="width: 40%; height: auto;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                                                    allowfullscreen></iframe>
                                                 @endif
                                             </td>
                                             <td>

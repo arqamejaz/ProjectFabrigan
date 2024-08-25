@@ -15,13 +15,18 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputDate">Date *:</label>
-                            <input type="date" id="inputDate" name="date" class="form-control"
+                            <input type="datetime-local" id="inputDate" name="date" class="form-control"
                                 value="{{ old('date', $event->date) }}" required>
                         </div>
                         <div class="form-group">
                             <label for="inputLocation">Location *:</label>
                             <input type="text" id="inputLocation" name="location" class="form-control"
                                 value="{{ old('location', $event->location) }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputdescription">Description *:</label>
+                            <input type="text" id="inputdescription" name="description" class="form-control"
+                            value="{{ old('description', $event->description) }}" required>
                         </div>
                         <div class="form-group">
                             <label for="inputOrderNo">Order Number *:</label>

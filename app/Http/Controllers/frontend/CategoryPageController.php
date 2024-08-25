@@ -12,12 +12,12 @@ use App\Http\Controllers\Controller;
 class CategoryPageController extends Controller
 {
     public function index($id){
-        $category = Category::findOrFail($id);
         $categories = Category::all();
         $accessories = Accessory::all();
         $settings = Setting::first();
 
-        $products = Product::where('category_id', $id)->orderBy('order_no', 'asc')->get();
+        $category = Category::findOrFail($id);
+        $products = Product::orderBy('order_no', 'asc')->get();
 
 
         return view('frontend.categories', compact('categories', 'accessories', 'category', 'settings', 'products'));

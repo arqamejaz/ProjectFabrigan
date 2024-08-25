@@ -27,6 +27,7 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'description' => 'nullable|string',
+            'LPImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
@@ -37,6 +38,18 @@ class CategoryController extends Controller
         $category->description = $request->input('description');
         $category->order_no = $request->input('order_no');
 
+        // Handle Landing Page Image upload
+        if ($request->hasFile('LPImage')) {
+            // Delete the old image if exists
+            if ($category->image && file_exists(public_path('uploads/categories/' . $category->LPImage))) {
+                unlink(public_path('uploads/categories/' . $category->LPImage));
+            }
+            // Upload the new image
+            $image = $request->file('LPImage');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/categories'), $imageName);
+            $category->LPImage = $imageName;
+        }
         // Handle serviceImages upload
          if ($request->hasFile('serviceImages')) {
             $serviceImagePaths = [];
@@ -76,9 +89,8 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'order_no' => 'required|integer',
-            'serviceImage.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5000',
+            'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5000',
         ]);
 
         // Find the category
@@ -88,14 +100,25 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->description = $request->input('description');
         $category->order_no = $request->input('order_no');
-        $category->serviceImage= $request->input('serviceImage');
-
+        
+        // Handle Landing Page Image upload
+        if ($request->hasFile('LPImage')) {
+            // Delete the old image if exists
+            if ($category->image && file_exists(public_path('uploads/categories/' . $category->LPImage))) {
+                unlink(public_path('uploads/categories/' . $category->LPImage));
+            }
+            // Upload the new image
+            $image = $request->file('LPImage');
+            $imageName = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/categories'), $imageName);
+            $category->LPImage = $imageName;
+        }
         // Handle serviceImages upload
         if ($request->hasFile('serviceImages')) {
             $serviceImagePaths = [];
             foreach ($request->file('serviceImages') as $serviceImage) {
                 $serviceImageName = time() . '-' . $serviceImage->getClientOriginalName();
-                $serviceImage->move(public_path('uploads/accessories/serviceImages'), $serviceImageName);
+                $serviceImage->move(public_path('uploads/categories/serviceImages'), $serviceImageName);
                 $serviceImagePaths[] = $serviceImageName;
             }
             $category->serviceImages = implode(',', $serviceImagePaths); // Save as a comma-separated string
@@ -106,7 +129,7 @@ class CategoryController extends Controller
         $imagePaths = [];
         foreach ($request->file('sliderImages') as $image) {
             $imageName = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads/accessories'), $imageName);
+            $image->move(public_path('uploads/categories/sliderImages'), $imageName);
             $imagePaths[] = $imageName;
         }
         $category->sliderImages = implode(',', $imagePaths);
@@ -114,7 +137,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('admin.listCategories')->with('success', 'Category updated successfully.');
+        return redirect()->route('admin.listcategories')->with('success', 'Category updated successfully.');
     }
 
     public function delete($id)
@@ -122,6 +145,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('admin.listCategories')->with('success', 'Category deleted successfully.');
+        return redirect()->route('admin.listcategories')->with('success', 'Category deleted successfully.');
     }
 }

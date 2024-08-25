@@ -5,6 +5,21 @@ $(document).ready(function () {
     owlCarousels();
     quantityInputs();
 
+    var swiper = new Swiper('.mySwiper', {
+        loop: true,  // Enable loop mode
+        slidesPerView: 1,  // Only one slide per view
+        slidesPerGroup: 1,  // Move one slide at a time
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            type: 'bullets',
+        },
+    });
+
 
 
     var swiper = new Swiper(".mySwiper", {

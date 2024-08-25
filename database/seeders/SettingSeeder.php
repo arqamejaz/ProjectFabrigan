@@ -13,6 +13,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         DB::table('settings')->insert([
+            'password' => 'umair@123',
             'accessoryh' => 'Accessories',
             'accessorysh' => 'Page',
             'categoryh' => 'Categories',
@@ -38,6 +39,7 @@ class SettingSeeder extends Seeder
             'footeryoutube' => 'https://www.6flicks.com',
             'LPVheading' => 'New Collection',
             'LPVdescription' => 'Fighting / Karata Suits',
+            'VideoId' => '1002379891',
         ]);
     }
 }

@@ -6,8 +6,7 @@
 
 @section('main-container')
     <main class="main">
-        <div class="container-fluid page-header text-center"
-            style="background-image: url('frontend/images/page-header-bg.jpg">
+        <div class="container-fluid page-header text-center">
             <div class="container">
                 <h1 class="page-title">{{ $settings->accessoryh }}<span>{{ $settings->accessorysh }}</span></h1>
             </div><!-- End .container -->
@@ -15,9 +14,9 @@
 
         <div class="swiper mySwiper container-fluid pt-3">
             <div class="swiper-wrapper">
-                @foreach (explode(',', $accessory->images) as $image)
+                @foreach (explode(',', $accessory->sliderImages) as $image)
                     <div class="swiper-slide">
-                        <img src="{{ asset('uploads/accessories/' . $image) }}" alt="{{ $accessory->name }}" class="product-image">
+                        <img src="{{ asset('uploads/accessories/sliderImages/' . $image) }}" alt="{{ $accessory->name }}" class="product-image">
                     </div>
                 @endforeach
             </div>
@@ -31,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="about-text text-center mt-3">
-                            <h2 class="title text-center mb-2">Product Detail</h2><!-- End .title text-center mb-2 -->
+                            <h2 class="title text-center mb-2">Description</h2><!-- End .title text-center mb-2 -->
                             {{ $accessory->description }}
                         </div><!-- End .about-text -->
                     </div><!-- End .col-lg-10 offset-1 -->
@@ -47,7 +46,7 @@
         <div class="container-fluid featured mt-4 pb-2">
             <div class="heading mb-3">
                 <div class="heading heading-center mb-3">
-                    <h2 class="title">Related Products</h2><!-- End .title -->
+                    <h2 class="title">Services</h2><!-- End .title -->
                 </div><!-- End .heading-left -->
 
 
@@ -66,48 +65,34 @@
                                         "dots": false,
                                         "margin": 20,
                                         "loop": true,
+                                        "autoplay": true,
+                                        "autoplayTimeout": 4500,
+                                        "autoplaySpeed": 1000,
                                         "responsive": {
                                             "0": {
                                                 "items":3
                                             },
                                             "480": {
-                                                "items":4
+                                                "items":3
                                             },
                                             "768": {
-                                                "items":5
+                                                "items":3
                                             },
                                             "992": {
-                                                "items":5,
+                                                "items":3,
                                                 "nav": false,
                                                 "dots": false
                                             }
                                         }
                                     }'>
-                                    @if ($products->isNotEmpty())
-                                    @foreach ($products as $product)
-                                        <div class="product product-7">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    @if ($product->images)
-                                                        <img src="{{ asset('uploads/products/' . explode(',', $product->images)[0]) }}"
-                                                            alt="{{ $product->name }}" class="product-image">
-                                                    @else
-                                                        <img src="{{ url('frontend/images/default-product.jpg') }}"
-                                                            alt="Default product image" class="product-image">
-                                                    @endif
-                                                </a>
-                                            </figure><!-- End .product-media -->
-
-                                            <div class="product-body text-center">
-                                                <h2 class="product-title"><a href="#">{{ $product->name }}</a></h2>
-                                                <!-- End .product-title -->
-                                            </div><!-- End .product-body -->
-                                        </div><!-- End .product -->
+                                    @foreach (explode(',', $accessory->serviceImages) as $image)
+                                    <div class="product product-7">
+                                        <figure class="product-media">
+                                            <img src="{{ asset('uploads/accessories/serviceImages/' . $image) }}"
+                                        alt="" class="product-image">
+                                        </figure>
+                                    </div><!-- End .product -->
                                     @endforeach
-                                @else
-                                    <p>No products available for this category.</p>
-                                @endif
-
                             </div><!-- End .owl-carousel -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane p-0 fade" id="featured-men-tab" role="tabpanel"

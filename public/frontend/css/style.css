@@ -10,23 +10,32 @@ html,body{
 }
 .video-banner {
     position: relative;
-    height: 100vh; /* Adjust height as needed */
+    overflow: hidden;
+    width: 100%;
+    /* height: 100vh; Full height of the viewport */
+}
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height */
     overflow: hidden;
 }
 
 #background-video {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure the video is in the background */
+    pointer-events: none; /* Prevent the video from being clicked */
 }
 
 .content-overlay {
     position: relative;
-    z-index: 1; /* Ensure content is above the video */
+    z-index: 2; /* Ensure content is above the video */
 }
 body{
     font:normal 300 1.4rem/1.86 "Poppins",sans-serif;
@@ -49,36 +58,134 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
      border-radius: 5px;
 }
+.logo-image {
+    max-width: 100%; /* Ensures the image does not exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+.logo-desktop img {
+    max-width: 70px; /* Adjust the max-width value as needed */
+    height: auto;
+}
+
+.logo-mobile img {
+    max-width: 100px; /* Adjust the max-width value as needed */
+    height: auto;
+}
+.logo-desktop {
+    display: block;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+/* For mobile screens - show mobile logo */
+@media (max-width: 768px) {
+    .logo-desktop {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: block;
+    }
+}
 .about-wrapper{
     display: flex;
 }
 .swiper-button-next, .swiper-button-prev {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 12px; /* Adjust the font size as needed */
     color: black; /* Change the color to black */
-    background-color: white; /* Set the background color to white */
+    background-color:rgba(255, 255, 255, 0.4); /* Set the background color to white */
     border-radius: 50%; /* Make the background color rounded */
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   .swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 16px; /* Adjust the arrow size */
-    color: black; /* Change the arrow color to black */
+    font-size: 16px;
+    /* color: black; */
   }
-
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+      color: #fff; /* Keep the text color white */
+      background-color: #000; /* Change to black on hover */
+      border-radius: 50%; /* Optional: add border-radius for rounded buttons */
+  }
   /* Optional: Add some padding for better alignment */
   .swiper-button-next, .swiper-button-prev {
     padding: 5px;
+    margin: 0 15px 0 0;
   }
+  @media (max-width: 768px) {
+    .swiper-button-next, .swiper-button-prev  {
+        padding: 5px;
+        margin: 0;
+
+    }
+
+    .swiper-slide img {
+        height: 100%;
+    }
+}
+
   .swiper {
     width: 100%;
     height: 100%;
   }
+  .swiper.mySwiper {
+    width: 100vw; /* Full viewport width */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom, 8px);
+    top: 50% !important; /* Center vertically */
+    left: auto !important; /* Ensure left is set to auto */
+    transform: translateY(-50%); /* Adjust to center */
+    width: 5%;
+  }
+  .swiper-pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    width: auto;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.swiper-pagination-bullet {
+    width: 4px; /* Thicker dashes */
+    height: 10px; /* Shorter dashes */
+    background-color: #ffffff;
+    margin: 5px 0 !important; /* Increase space between dashes with !important */
+    opacity: 1;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 6px; /* Longer length for the active dash */
+    height: 20px; /* Slightly taller height for the active dash */
+    background-color: #ff0000; /* Optional: Change color for active dash */
+}
+
 
   .swiper-slide {
+    /* padding: 0 50px; */
+    width: 100%;
+    height: 700px;
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -88,18 +195,28 @@ body{
   }
 
   .swiper-slide img {
-    display: block;
+    /* display: block; */
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  @media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .swiper-slide {
+        height: calc(100vw * 0.5625); /* Aspect ratio of 16:9 (or adjust as needed) */
+    }
+
+    .swiper-slide img {
+        height: 100%;
+    }
+}
+
 
 .float {
     position: fixed;
     width: 6rem;
     height: 6rem;
-    bottom: 40px;
-    right: 45px;
+    bottom: 5px;
+    right: 5px;
     /* background-color: #25d366;
     color: #FFF; */
     border-radius: 50px;
@@ -163,7 +280,7 @@ img{
     background-color:#a6c76c !important
 }
 .bg-image{
-    background-color:#ccc;
+    background-color:#000000;
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat
@@ -1721,7 +1838,7 @@ blockquote.text-white cite span{
     margin-top:-.5rem
 }
 .menu.sf-arrows ul .sf-with-ul{
-    padding-right:4rem
+    padding-right:4rem;
 }
 .menu.sf-arrows ul .sf-with-ul:after{
     content:'\f112';
@@ -1905,7 +2022,7 @@ blockquote.text-white cite span{
     transform:scale(1, 1)
 }
 .header-bottom .menu.sf-arrows>li>.sf-with-ul::after{
-    right:1rem
+    right:1rem;
 }
 @media screen and (min-width: 992px){
     .main-nav{
@@ -2342,7 +2459,7 @@ blockquote.text-white cite span{
     right: -280px;
     top: 0;
     bottom: 0;
-    z-index: 1002;  /* Adjusted z-index to be above toggle button */
+    z-index: 1100;  /* Adjusted z-index to be above toggle button */
     background-color: #333;
     width: 100%;
     max-width: 280px;
@@ -2627,7 +2744,7 @@ p{
     font-weight:300;
     font-family:'Poppins';
     letter-spacing:0;
-    color: black
+    color: rgb(255, 255, 255)
 }
 .header-2{
     background-color:#fff
@@ -4609,11 +4726,11 @@ p{
     width:5rem;
     height:5rem;
     position:fixed;
-    right:50px;
-    bottom:128px;
+    right:10px;
+    bottom:70px;
     z-index:999;
     color:#ffffff;
-    display:none;
+    display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
@@ -4653,7 +4770,7 @@ p{
 }
 #scroll-top:hover,#scroll-top:focus{
     color:#777;
-    background-color:#eaeaea
+    background-color:#000000
 }
 #scroll-top.show{
     visibility:visible;
@@ -4663,11 +4780,7 @@ p{
     -ms-transform:translateY(0);
     border-radius: 3rem;
 }
-@media screen and (min-width: 768px){
-    #scroll-top{
-        display:flex
-    }
-}
+
 @media screen and (min-width: 992px){
     .footer-bottom .container,.footer-bottom .container-fluid{
         flex-direction:row
@@ -4851,14 +4964,14 @@ p{
 }
 .page-header{
     /* padding:4.6rem 0 5rem; */
-    padding: 10rem;
-    background-color:#ebebeb;
+    padding: 1rem;
+    background-color:#000000;
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
 }
 .page-header h1{
-    color:#333;
+    color:#d2d2d2;
     font:normal 400 3.2rem/1.1 "Poppins",sans-serif;
     letter-spacing:-.025em;
     margin-bottom:0
@@ -5801,6 +5914,7 @@ p{
     border-color:#d7d7d7;
     box-shadow:none
 }
+
 .btn-outline-dark:hover,.btn-outline-dark:focus,.btn-outline-dark.focus,.btn-outline-dark:not(:disabled):not(.disabled):active,.btn-outline-dark:not(:disabled):not(.disabled).active,.show>.btn-outline-dark.dropdown-toggle{
     color:#ff0000;
     background-color:transparent;
@@ -5835,6 +5949,7 @@ p{
     border-color:#d7d7d7;
     box-shadow:none
 }
+
 .btn-outline-dark-3:hover,.btn-outline-dark-3:focus,.btn-outline-dark-3.focus,.btn-outline-dark-3:not(:disabled):not(.disabled):active,.btn-outline-dark-3:not(:disabled):not(.disabled).active,.show>.btn-outline-dark-3.dropdown-toggle{
     color:#ff0000ff0000;
     background-color:transparent;
@@ -7566,8 +7681,8 @@ p{
     margin-right:auto
 }
 .video-banner-bg{
-    padding-top:8.5rem;
-    padding-bottom:7.5rem
+    padding-top:2.5rem;
+    padding-bottom:2.5rem
 }
 .video-banner-title{
     letter-spacing:-.025em;
@@ -7877,6 +7992,7 @@ p{
     align-items:center;
     flex-flow:row wrap;
     display: inline-flex;
+    margin-left: 15%;
 }
 .social-icon{
     display:flex;
@@ -7885,7 +8001,7 @@ p{
     font-size:1.6rem;
     width:4rem;
     height:4rem;
-    color:black;
+    color:white;
     margin:0;
     background-color:transparent;
     border:.1rem solid #e1e2e6;
@@ -8685,12 +8801,58 @@ small.form-text{
 }
 .instagram-feed{
     width:100%;
+    height: 208px;
+    overflow: hidden;
     display:block;
     position:relative;
     background-color:#ccc;
     margin-bottom:2rem;
     border-radius: 1rem;
+}.category-feed {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    background-color: #ccc;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
 }
+
+.category-feed img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease; /* Smooth transition */
+    background-color: rgba(0, 0, 0, 0.3); /* Low opacity black layer */
+
+}
+
+.category-feed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease; /* Smooth transition */
+    opacity: 1;
+}
+
+.category-feed:hover {
+    transform: scale(1.05); /* Increase size more */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+/* .category-feed:hover img {
+    transform: scale(1.2); /* Zoom in the image more */
+} */
+
+.category-feed:hover::before {
+    opacity: 0; /* Fade out the black layer */
+}
+
+
+
 .owl-carousel .instagram-feed{
     margin-bottom:0
 }
@@ -8727,9 +8889,13 @@ small.form-text{
 .instagram-feed img{
     max-width:none;
     width:100%;
+    height: 100%;
     border-radius: 1rem;
     transition: transform 0.3s ease-in-out;
-  /* transform: scale(0.9); */
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }
 
 .instagram-feed-content{
@@ -9071,6 +9237,7 @@ button:focus{
 }
 .blog-posts .entry{
     color:#777;
+
     font-size:1.5rem;
     line-height:1.73;
     letter-spacing:-.01em;
@@ -10861,20 +11028,59 @@ button:focus{
     font-size:1.4rem;
     line-height:1.85
 }
+.entry-item-new {
+    width: 100%;
+    height: 452px;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+@media (max-width: 767px) {
+    .entry-item-new {
+        height: auto; /* Remove fixed height */
+    }
+}
+.entry-media-new iframe {
+    width: 100%;
+    height: 452px; /* Adjust to the previous video height */
+    position: relative;
+    background-color: #ccc; /* Match the background if necessary */
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    .entry-media-new iframe {
+        height: auto; /* Set height to auto or a specific value for mobile view */
+    }
+    .entry-media-new {
+        width: 100%;
+        position: relative;
+        /* background-color: #ccc; Match the background if necessary */
+        overflow: hidden;
+    }
+}
 .entry-media{
     position:relative;
     background-color:#ccc;
-    margin-bottom:2.4rem
+    margin-bottom:2.4rem;
+    width: 100%;
+    height: 209px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+.entry-media iframe{
+        height: 100%;
+        width: 100%;
 }
 .entry-media>a{
     position:relative;
     display:block
 }
 .entry-media img{
-    display:block;
-    max-width:none;
     width:100%;
-    height:auto
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Ensures the image covers the entire div */
+    object-position: center;
 }
 .entry-video a:after{
     content:'\ec2c';
@@ -11042,13 +11248,14 @@ button:focus{
 .entry-container{
     position:relative;
     margin:0 -1rem .5rem;
-    transition:height .4s
+    transition:height .4s;
 }
 .entry-container::after{
     display:block;
     clear:both;
     content:''
 }
+
 .entry-item{
     float:left;
     padding:0 10px

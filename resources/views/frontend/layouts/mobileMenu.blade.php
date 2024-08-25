@@ -15,44 +15,31 @@
         <nav class="mobile-nav">
             <ul class="mobile-menu">
                 <li class="active">
-                    <a href="index-2.html">Home</a>
+                    <a href="{{ url('/') }}">Home</a>
                 </li>
-                <li><a href="about.html">About Us</a></li>
-                <li>
+                {{-- <li>
                     <a href="#">Categories</a>
                     <ul>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="{{ url('/category', $category->id) }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
-
-                <li><a href="#">Catelogue PDF</a></li>
-
                 <li>
                     <a href="#" class="sf-with-ul">Accessories</a>
 
                     <ul>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
-
+                        @foreach($accessories as $accessory)
+                        <li><a href="{{ url('/accessory', $accessory->id) }}">{{ $accessory->name }}</a></li>
+                        @endforeach
                     </ul>
-                </li>
+                </li> --}}
+                <li><a href="{{ url('/catalogue') }}">Catalogue</a></li>
 
                 <li><a href="event-2.html">Event</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="contact-2.html">Contact Us</a></li>
+                <li><a href="{{ url("/media") }}">Media</a></li>
+                <li><a href="{{ url("/about") }}">About Us</a></li>
+                <li><a href="{{ url("/contact") }}">Contact Us</a></li>
 
             </ul>
         </nav><!-- End .mobile-nav -->
@@ -86,25 +73,27 @@
                 <li>
                     <a href="#">Categories</a>
                     <ul>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="{{ url('/category', $category->id) }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li>
                     <a href="#" class="sf-with-ul">Accessories</a>
                     <ul>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Accessories</a></li>
+                        @foreach($accessories as $accessory)
+                        <li><a href="{{ url('/accessory', $accessory->id) }}">{{ $accessory->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>
         </nav><!-- End .mobile-nav -->
 
         <div class="social-icons">
-            <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            <a href="{{ $settings->footerfb }}" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+            <a href="{{ $settings->footertwitter }}" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+            <a href="{{ $settings->footerinsta }}" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+            <a href="{{ $settings->footeryoutube }}" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
 </div><!-- End .mobile-menu-container -->

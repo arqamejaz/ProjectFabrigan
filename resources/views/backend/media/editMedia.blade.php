@@ -27,6 +27,12 @@
                             <label for="inputDescription">Description *:</label>
                             <textarea id="inputDescription" name="description" class="form-control" rows="4" required>{{ old('description', $media->description) }}</textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="inputFeatured">
+                                <input type="checkbox" id="inputFeatured" name="featured" value="1" {{ old('featured', $media->featured) ? 'checked' : '' }}>
+                                Featured Video
+                            </label>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-body">

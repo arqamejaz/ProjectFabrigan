@@ -46,7 +46,7 @@ class CatalogueController extends Controller
             $catalogue->file_path = $fileName; // Store the file name in the database
             $catalogue->save();
 
-            return redirect()->route('admin.listCatalogues')->with('success', 'Catalogue added successfully.');
+            return redirect()->route('admin.listcatalogues')->with('success', 'Catalogue added successfully.');
         }
 
         return redirect()->back()->with('error', 'Failed to upload the file.');
@@ -62,7 +62,7 @@ class CatalogueController extends Controller
         // Delete the catalogue record from the database
         $catalogue->delete();
         // Redirect with a success message
-        return redirect()->route('admin.listCatalogues')
+        return redirect()->route('admin.listcatalogues')
             ->with('success', 'Catalogue deleted successfully.');
     }
 }

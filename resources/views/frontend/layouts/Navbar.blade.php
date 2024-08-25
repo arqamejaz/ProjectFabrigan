@@ -36,9 +36,11 @@
 
         <div class="header-center">
 
-            <a href="home.html">
-                <img src={{asset("frontend/images/logo1715234122.png")}} class="img-resposive" alt="fabrigan"
-                    width="82" height="25">
+            <a href="{{ url("/") }}" class="logo-desktop justify-content-center">
+                <img src={{asset("frontend/images/logo-dark-desktop.png")}} alt="Desktop Logo" class="logo-image">
+            </a>
+            <a href="{{ url("/") }}" class="logo-mobile">
+                <img src={{asset("frontend/images/logo-dark-mobile.png")}} alt="Desktop Logo" class="logo-image">
             </a>
 
         </div><!-- End .header-center -->

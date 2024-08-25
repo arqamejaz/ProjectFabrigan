@@ -28,7 +28,6 @@ class WhyChooseUsController extends Controller
             'ImageText' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
-
         // Create a new WhyChooseUs instance
         $whyChooseUs = new WhyChooseUs();
         $whyChooseUs->order_no = $request->input('order_no');
@@ -61,7 +60,7 @@ class WhyChooseUsController extends Controller
         $validatedData = $request->validate([
             'order_no' => 'required|integer',
             'ImageText' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Find the existing WhyChooseUs entry

@@ -24,8 +24,16 @@
                         <label for="inputDescription">Description *:</label>
                         <textarea id="inputDescription" name="description" class="form-control" rows="4" required></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="inputFeatured">
+                            <input type="hidden" name="featured" value="0">
+                            <input type="checkbox" id="inputFeatured" name="featured" value="1"
+                            onchange="this.previousElementSibling.value = this.checked ? '1' : '0';">                            Featured Video
+                        </label>
+                    </div>
                 </div>
                 <!-- /.card-body -->
+
                 <div class="card-body">
                     <div id="videoUploadFields">
                         <div class="form-group">

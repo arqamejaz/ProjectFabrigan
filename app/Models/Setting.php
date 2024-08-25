@@ -9,7 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'accessoryh', 'accessorysh', 'categoryh', 'categorysh', 'catalogueh',
+        'password','accessoryh', 'accessorysh', 'categoryh', 'categorysh', 'catalogueh',
         'cataloguesh', 'mediah', 'mediash', 'eventh', 'eventsh', 'abouth',
         'aboutsh', 'contacth', 'contactsh', 'producth', 'productsh', 'bannercontact', 'bannermsg',
         'banneremail', 'footerfb', 'footerinsta', 'footertwitter', 'footeryoutube',

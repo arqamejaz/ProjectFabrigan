@@ -6,7 +6,7 @@
                 <div class="col-sm-6 col-lg-2">
                     <div class="text-center">
                         <a href={{url("/")}}>
-                            <img src={{ asset("frontend/images/logo1715234122.png") }} alt="logo" style="height: 100px; width: 100px; display: inline">
+                            <img src={{ asset("frontend/images/logo-light-desktop.png") }} alt="logo" style="height: 100px; width: 100px; display: inline">
                         </a>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <form action="#">
                             <div class="col-sm-12 col-lg-12">
                                 <input type="email" class="form-control" placeholder="Enter Email">
-                                <button class="btn btn-outline-dark-2" type="button">Subscribe</button>
+                                <button class="btn btn-outline-light" type="button">Subscribe</button>
                             </div>
                           </form>
                     </div>

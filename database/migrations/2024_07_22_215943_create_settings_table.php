@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('password')->nullable();
             $table->string('accessoryh')->nullable();
             $table->string('accessorysh')->nullable();
             $table->string('categoryh')->nullable();
@@ -38,6 +39,7 @@ return new class extends Migration
             $table->string('footeryoutube')->nullable();
             $table->string('LPVheading')->nullable();
             $table->string('LPVdescription')->nullable();
+            $table->string('videoId')->nullable();
             $table->timestamps();
         });
     }

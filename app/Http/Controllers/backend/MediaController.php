@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Vimeo\Laravel\Facades\Vimeo;
 
 class MediaController extends Controller
 {
@@ -28,6 +29,7 @@ class MediaController extends Controller
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
             'description' => 'nullable|string',
+            'featured' => 'nullable|boolean',
             'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000', // Validate video file type and size
         ]);
 
@@ -36,13 +38,29 @@ class MediaController extends Controller
         $media->name = $request->input('name');
         $media->order_no = $request->input('order_no');
         $media->description = $request->input('description');
+        $media->featured = $request->input('featured', 0);
 
         // Handle video upload
+        // if ($request->hasFile('video')) {
+        //     $video = $request->file('video');
+        //     $videoName = time() . '_' . $video->getClientOriginalName();
+        //     $video->move(public_path('uploads/media/videos'), $videoName);
+        //     $media->video = $videoName; // Store only the filename in the database
+        // }
+
+        // Handle video upload to Vimeo
         if ($request->hasFile('video')) {
             $video = $request->file('video');
-            $videoName = time() . '_' . $video->getClientOriginalName();
-            $video->move(public_path('uploads/media/videos'), $videoName);
-            $media->video = $videoName; // Store only the filename in the database
+            $path = $video->getRealPath();
+
+            // Upload video to Vimeo
+            $response = Vimeo::upload($path, [
+                'name' => $media->name,
+                'description' => $media->description,
+            ]);
+            $videoId = explode('_', $response)[0]; // Extracts "1724152938"
+            // Store the Vimeo video URL or ID in the database
+            $media->video = $videoId;
         }
 
         $media->save();
@@ -62,8 +80,9 @@ class MediaController extends Controller
         // Validate the request
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'order_no' => 'required|integer',
+            'description' => 'nullable|string',
+            'featured' => 'nullable|boolean',
             'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000', // Validate video file type and size
         ]);
 
@@ -72,8 +91,10 @@ class MediaController extends Controller
 
         // Update the media
         $media->name = $request->input('name');
-        $media->description = $request->input('description');
         $media->order_no = $request->input('order_no');
+        $media->description = $request->input('description');
+        $media->featured = $request->input('featured', 0);
+
 
          // Handle video upload
          if ($request->hasFile('video')) {
@@ -84,7 +105,7 @@ class MediaController extends Controller
         $media->video = $videoName;
         $media->save();
 
-        return redirect()->route('admin.listMedia')->with('success', 'Media updated successfully.');
+        return redirect()->route('admin.listmedia')->with('success', 'Media updated successfully.');
     }
 
     public function delete($id)
@@ -92,6 +113,6 @@ class MediaController extends Controller
         $media = Media::findOrFail($id);
         $media->delete();
 
-        return redirect()->route('admin.listMedia')->with('success', 'Media deleted successfully.');
+        return redirect()->route('admin.listmedia')->with('success', 'Media deleted successfully.');
     }
 }

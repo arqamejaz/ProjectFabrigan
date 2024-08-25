@@ -47,7 +47,7 @@ class EventController extends Controller
 
     $event->save();
 
-    return redirect()->route('admin.listEvents')->with('success', 'Event added successfully.');
+    return redirect()->route('admin.listevents')->with('success', 'Event added successfully.');
 }
     public function edit($id)
     {
@@ -62,8 +62,8 @@ class EventController extends Controller
         'date' => 'required|date',
         'location' => 'required|string|max:255',
         'description' => 'required|string|max:255',
-        'order_no' => 'required|integer',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        'order_no' => 'required|integer',
     ]);
 
     // Find the event
@@ -71,7 +71,6 @@ class EventController extends Controller
     $event->date = $request->input('date');
     $event->location = $request->input('location');
     $event->order_no = $request->input('order_no');
-
     // Handle image upload
     if ($request->hasFile('image')) {
         // Delete the old image if exists
@@ -88,7 +87,7 @@ class EventController extends Controller
     // Save the updated event
     $event->save();
 
-    return redirect()->route('admin.listEvents')->with('success', 'Event updated successfully.');
+    return redirect()->route('admin.listevents')->with('success', 'Event updated successfully.');
 }
 
     public function delete($id)
@@ -96,6 +95,6 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $event->delete();
 
-        return redirect()->route('admin.listEvents')->with('success', 'Event deleted successfully.');
+        return redirect()->route('admin.listevents')->with('success', 'Event deleted successfully.');
     }
 }

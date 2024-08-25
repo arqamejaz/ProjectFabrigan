@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('order_no')->default(0);
             $table->text('description');
+            $table->boolean('featured')->default(0);
             $table->string('video')->nullable();
             $table->timestamps();
         });

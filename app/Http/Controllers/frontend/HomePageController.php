@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Accessory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\WhyChooseUs;
 
 class HomePageController extends Controller
 {
@@ -20,7 +21,8 @@ class HomePageController extends Controller
         $sliders = Slider::all();
         $products = Product::all();
         $media = Media::all();
+        $whychooseus = WhyChooseUs::all();
 
-        return view('frontend.index', compact('settings','categories', 'accessories', 'sliders', 'products', 'media'));
+        return view('frontend.index', compact('settings','categories', 'accessories', 'sliders', 'products', 'media', 'whychooseus'));
     }
 }

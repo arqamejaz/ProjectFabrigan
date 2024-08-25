@@ -13,6 +13,13 @@
                         <h3 class="card-title">General Settings</h3>
                     </div>
                     <div class="card-body shadow">
+                        <h3 class="card-title">Website Password:</h3><br>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" id="password" name="password" class="form-control" value="{{ $settings->password }}">
+                        </div>
+                    </div>
+                    <div class="card-body shadow">
                         <h3 class="card-title">Accessories:</h3><br>
                         <div class="form-group">
                             <label for="accessoryh">Heading</label>
@@ -143,6 +150,10 @@
                         <div class="form-group">
                             <label for="LPVdescription">Description</label>
                             <input type="text" id="LPVdescription" name="LPVdescription" class="form-control" value="{{ $settings->LPVdescription }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="videoId">Vimeo Video Id</label>
+                            <input type="text" id="VideoId" name="videoId" class="form-control" value="{{ $settings->videoId }}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
