@@ -52,7 +52,7 @@
                                     accept="image/*" multiple>
                                 <div id="sliderImagePreview" class="mt-2">
                                     @foreach (explode(',', $accessory->sliderImages) as $sliderImage)
-                                        <img src="{{ asset('uploads/accessories/' . $sliderImage) }}" alt="Slider Image"
+                                        <img src="{{ asset('uploads/accessories/sliderImages' . $sliderImage) }}" alt="Slider Image"
                                             style="width: 100px; height: auto; margin-top: 10px;">
                                     @endforeach
                                 </div>

@@ -27,12 +27,10 @@
                             <div class="entry-item-new  col-sm-6">
                                 <article class="entry entry-grid text-center border_radios">
                                     <figure class="entry-media-new border_radios">
-                                        <a href="#">
-                                            <iframe id="" src="{{ "https://player.vimeo.com/video/".$videoId }}"
+                                            <iframe src="{{ "https://player.vimeo.com/video/".$videoId }}"
                                                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                                                  allowfullscreen>
                                             </iframe>
-                                        </a>
                                     </figure><!-- End .entry-media -->
 
                                     <div class="entry-body">
@@ -63,14 +61,10 @@
 
                                     <figure class="entry-media">
 
-                                        <a href="#">
-                                            {{-- {{ dd("https://player.vimeo.com/video/".$videoId) }} --}}
-
                                             <iframe id="" src="{{ "https://player.vimeo.com/video/". $videoId }}"
                                                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
                                                  allowfullscreen>
                                             </iframe>
-                                        </a>
                                     </figure><!-- End .entry-media -->
 
                                     <div class="entry-body">
