@@ -30,16 +30,6 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-body">
-                        <div id="imageUploadFields">
-                            <div class="form-group">
-                                <label for="inputImage">Upload Event Image *:</label>
-                                <input type="file" id="inputImage" name="image" class="form-control-file"
-                                    accept="image/*" required>
-                                <div id="imagePreview" class="mt-2"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

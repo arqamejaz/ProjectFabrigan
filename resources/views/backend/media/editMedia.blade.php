@@ -41,8 +41,13 @@
                                 <label for="inputVideo">Upload Media Video *:</label>
                                 <input type="file" id="inputVideo" name="video" class="form-control-file" accept="video/*" required>
                                 <div id="videoThumbnailPreview" class="mt-2">
-                                    @if($media->video)
-                                        <video src="{{ asset('uploads/media/videos/' . $media->video) }}" alt="Video Thumbnail" style="max-width: 100px; height: auto; margin-top: 10px;"></video>
+                                    @if ($media->video)
+                                        @php
+                                            $parts = explode('/', $media->video);
+                                            $videoId = end($parts);
+                                        @endphp
+                                        <iframe id="" src="{{ "https://player.vimeo.com/video/".$videoId }}" style="width: 40%; height: auto;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                                        allowfullscreen></iframe>
                                     @endif
                                 </div>
                             </div>

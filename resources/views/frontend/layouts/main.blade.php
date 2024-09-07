@@ -3,36 +3,36 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fabrigan | @yield('title')</title>
-    <meta name="keywords" content="fabrigan">
-    <meta name="description" content="fabrigan - Karate suits">
-    <meta name="author" content="fabrigan">
+    <meta name="keywords" content="fabrigan" />
+    <meta name="description" content="fabrigan - Karate suits" />
+    <meta name="author" content="fabrigan" />
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('frontend/images/icons/favicon.ico') }}>
-    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('frontend/images/icons/favicon.ico') }}>
-    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('frontend/images/icons/favicon.ico') }}>
-    <link rel="manifest" href={{ asset('frontend/images/icons/site.html') }}>
-    <link rel="mask-icon" href={{ asset('frontend/images/icons/safari-pinned-tab.html') }} color="#666666">
-    <link rel="shortcut icon" href={{ asset('frontend/images/icons/favicon.ico') }}>
-    <meta name="apple-mobile-web-app-title" content="fabrigan">
-    <meta name="application-name" content="fabrigan">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+    <link rel="manifest" href="{{ asset('frontend/images/icons/site.html') }}" />
+    <link rel="mask-icon" href="{{ asset('frontend/images/icons/safari-pinned-tab.html') }}" color="#666666" />
+    <link rel="shortcut icon" href="{{ asset('frontend/images/icons/favicon.ico') }}" />
+    <meta name="apple-mobile-web-app-title" content="fabrigan" />
+    <meta name="application-name" content="fabrigan" />
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content={{ asset('frontend/images/icons/browserconfig.xml') }}>
-    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-config" content={{ asset('frontend/images/icons/browserconfig.xml') }} />
+    <meta name="theme-color" content="#ffffff"/ />
     <!-- Swiper Slider CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     {{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> --}}
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href={{ asset('frontend/css/bootstrap.min.css') }}>
-    <link rel="stylesheet" href={{ asset('frontend/css/plugins/owl-carousel/owl.carousel.css') }}>
-    <link rel="stylesheet" href={{ asset('frontend/css/plugins/magnific-popup/magnific-popup.css') }}>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/plugins/owl-carousel/owl.carousel.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/plugins/magnific-popup/magnific-popup.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- Main CSS File -->
-    <link rel="stylesheet" href={{ asset('frontend/css/style.css') }}>
-    <link rel="stylesheet" href={{ asset('frontend/css/demos/demo-18.css') }}>
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/demos/demo-18.css') }}" />
 </head>
 
 <body>

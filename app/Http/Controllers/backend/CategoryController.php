@@ -89,6 +89,7 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'order_no' => 'required|integer',
+            'LPImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'serviceImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5000',
             'sliderImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5000',
         ]);
@@ -100,7 +101,7 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->description = $request->input('description');
         $category->order_no = $request->input('order_no');
-        
+
         // Handle Landing Page Image upload
         if ($request->hasFile('LPImage')) {
             // Delete the old image if exists

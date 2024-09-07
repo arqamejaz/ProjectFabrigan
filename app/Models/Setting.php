@@ -13,6 +13,6 @@ class Setting extends Model
         'cataloguesh', 'mediah', 'mediash', 'eventh', 'eventsh', 'abouth',
         'aboutsh', 'contacth', 'contactsh', 'producth', 'productsh', 'bannercontact', 'bannermsg',
         'banneremail', 'footerfb', 'footerinsta', 'footertwitter', 'footeryoutube',
-        'LPVheading', 'LPVdescription'
+        'LPVheading', 'LPVdescription', 'videoId'
     ];
 }

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalogue extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name', 'order', 'image', 'file'];
 }

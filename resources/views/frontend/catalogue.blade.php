@@ -17,26 +17,17 @@
             <div class="container-fluid">
                 <div class="row">
                     @foreach ($catalogues as $catalogue)
-                        <div class="entry-item col-sm-6 col-md-4">
-                            <div class="product product-3">
-                                <article class="entry entry-grid text-center">
-
-                                <figure class="entry-media">
-                                    <a href="{{ asset('uploads/catalogues/' . $catalogue->file_path) }}">
-                                        <img src="{{ url('frontend/images/demos/img/category2.jpg') }}" alt="catalogue"
-                                            class="product-image">
-                                    </a>
-                                </figure><!-- End .product-media -->
-                                <div class="entry-body">
-                                    <div class="product-action">
-                                        {{ $catalogue->file_path }}
-                                    </div><!-- End .product-action -->
-                                    <h3 class="product-title"><a href="#">{{ $catalogue->name }}</a></h3>
-                                    <!-- End .product-title -->
-                                </div><!-- End .product-body -->
-                            </article><!-- End .entry -->
-
-                            </div><!-- End .product -->
+                        <div class="entry-item col-sm-6 col-md-4 mb-2">
+                            <div class="category-feed banner banner-hover">
+                                <a href="{{ asset('uploads/catalogues/' . $catalogue->file_path) }}">
+                                    <img src="{{ url('frontend/images/demos/img/test1.jpg') }}" alt="catalogue"
+                                        class="product-image">
+                                </a>
+                            </div>
+                            <div class="product-body text-center">
+                                <h2 class="product-title"><a href="#">{{ $catalogue->name }}</a></h2>
+                                <!-- End .product-title -->
+                            </div>
                         </div><!-- End .col-6 col-md-4 col-lg-3 -->
                     @endforeach
                 </div><!-- End .row -->

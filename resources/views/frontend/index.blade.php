@@ -53,9 +53,9 @@
 
             <!-- Content on top of the video -->
             <div class="container-fluid text-center content-overlay">
-                <h3 class="video-banner-title h1 text-white">
-                    <span>{{ $settings->LPVheading }}</span>
-                    <strong>{{ $settings->LPVdescription }}</strong>
+                <h3 class="video-banner-title h1 text-white mt-3">
+                    <strong>{{ $settings->LPVheading }}</strong>
+                    <span class="mt-4">{{ $settings->LPVdescription }}</span>
                 </h3><!-- End .video-banner-title -->
 
             </div>
@@ -67,7 +67,7 @@
                     <h2 class="title instagram">Featured Products</h2><!-- End .title -->
                 </div><!-- End .heading -->
                 <div class="more-container text-center">
-                    <a href="{{ url('/products') }}" class="btn btn-outline-darker btn-more"><span>View All</span><i
+                    <a href="{{ url('/products') }}" style="position:relative; z-index:100" class="btn btn-outline-darker btn-more"><span>View All</span><i
                             class="icon-long-arrow-right"></i></a>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                         <h2 class="title instagram">Fabrigan Production</h2><!-- End .title -->
                     </div><!-- End .heading -->
                     <div class="more-container text-center">
-                        <a href="#" class="btn btn-outline-darker btn-more"><span>View All</span><i
+                        <a href="{{ url('/media') }}" style="position: relative; z-index:100" class="btn btn-outline-darker btn-more"><span>View All</span><i
                                 class="icon-long-arrow-right"></i></a>
                     </div>
                 </div>
@@ -179,8 +179,6 @@
                             "autoplay": true,
                             "autoplayTimeout": 6000,
                             "autoplaySpeed": 4500,
-
-
                             "responsive": {
                                 "0": {
                                     "items":2

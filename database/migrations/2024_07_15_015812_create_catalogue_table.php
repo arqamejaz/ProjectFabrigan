@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id(); // Primary key, auto-incrementing
             $table->string('name')->nullable(); // Order number, integer type
             $table->integer('order_no')->nullable(); // Order number, integer type
+            $table->string('image')->nullable();
             $table->string('file_path'); // File path for the uploaded PDF
             $table->timestamps(); // Created at and updated at timestamps
         });

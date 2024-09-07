@@ -25,6 +25,7 @@ class CatalogueController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'order_no' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'file' => 'required|file|mimes:pdf|max:20480', // Validates that the file is a PDF and has a max size of 20MB
         ]);
 
@@ -43,7 +44,14 @@ class CatalogueController extends Controller
             $catalogue = new Catalogue();
             $catalogue->name = $request->input('name');
             $catalogue->order_no = $request->input('order_no');
-            $catalogue->file_path = $fileName; // Store the file name in the database
+            $catalogue->file_path = $fileName;
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('uploads/events'), $imageName);
+                $catalogue->image = $imageName;
+            }
             $catalogue->save();
 
             return redirect()->route('admin.listcatalogues')->with('success', 'Catalogue added successfully.');

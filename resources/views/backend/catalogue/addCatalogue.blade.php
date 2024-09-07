@@ -20,6 +20,12 @@
                             <label for="inputOrderNo">Order Number *:</label>
                             <input type="number" id="inputOrderNo" name="order_no" class="form-control" required>
                         </div>
+                        <div class="form-group" id="imageUploadFields">
+                            <label for="inputImage">Upload Catalogue Image *:</label>
+                            <input type="file" id="inputImage" name="image" class="form-control-file"
+                                accept="image/*" required>
+                            <div id="imagePreview" class="mt-2"></div>
+                        </div>
                         <div class="form-group">
                             <label for="inputFile">Upload Catalogue (PDF only) *:</label>
                             <input type="file" id="inputFile" name="file" class="form-control-file" accept=".pdf" required>

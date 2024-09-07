@@ -29,6 +29,7 @@ class EventController extends Controller
         'description' => 'required|string|max:255',
         'order_no' => 'required|integer',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+
     ]);
 
     // Create and save the event

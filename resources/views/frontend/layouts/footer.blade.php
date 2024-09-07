@@ -3,15 +3,16 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-sm-6 col-lg-2">
+                <div class="col-sm-6 col-lg-2" id="item-1">
                     <div class="text-center">
-                        <a href={{url("/")}}>
-                            <img src={{ asset("frontend/images/logo-light-desktop.png") }} alt="logo" style="height: 100px; width: 100px; display: inline">
+                        <a href={{ url('/') }}>
+                            <img src={{ asset('frontend/images/logo-light-desktop.png') }} alt="logo"
+                                style="height: 100px; width: 100px; display: inline">
                         </a>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-5 text-center">
+                <div class="col-sm-6 col-lg-5 text-center" id="item-2">
                     <div>
                         <p><b>Join the movement!</b></p>
                     </div>
@@ -20,21 +21,18 @@
                     </div>
                     <div class="widget widget-about text-center">
                         <div class="social-icons">
-                            <a href="{{ $settings->footerfb }}" class="social-icon" title="Facebook" target="_blank"><i
+                            <a href="{{ $settings->footerfb }}" class="social-icon" title="Facebook"><i
                                     class="icon-facebook-f"></i></a>
-                            <a href="{{ $settings->footerinsta }}" class="social-icon" title="Instagram" target="_blank"><i
-                                    class="icon-instagram"></i></a>
-                            <a href="{{ $settings->footertwitter }}" class="social-icon" title="twitter" target="_blank"><i
-                                    class="icon-twitter"></i></a>
-                            <a href="{{ $settings->footeryoutube }}" class="social-icon" title="Youtube" target="_blank"><i
-                                    class="icon-youtube"></i></a>
+                            <a href="{{ $settings->footerinsta }}" class="social-icon" title="Instagram"><i class="icon-instagram"></i></a>
+                            <a href="{{ $settings->footertwitter }}" class="social-icon" title="twitter"><i class="icon-twitter"></i></a>
+                            <a href="{{ $settings->footeryoutube }}" class="social-icon" title="Youtube"><i class="icon-youtube"></i></a>
                         </div>
                         <div class="widget widget-about text-center">
                             <p class="footer-copyright text-center">Copyright © 2024 Fabrigan. All Rights Reserved.</p>
                         </div>
                     </div>
                 </div><!-- End .col-sm-6 col-lg-3 -->
-                <div class="col-sm-6 col-lg-5">
+                <div class="col-sm-6 col-lg-5" id="item-3">
                     <div>
                         <p><b>Newsletter</b></p>
                     </div>
@@ -47,12 +45,10 @@
                                 <input type="email" class="form-control" placeholder="Enter Email">
                                 <button class="btn btn-outline-light" type="button">Subscribe</button>
                             </div>
-                          </form>
+                        </form>
                     </div>
                 </div>
             </div><!-- End .row -->
         </div><!-- End .container -->
     </div><!-- End .footer-middle -->
-
-
 </footer>

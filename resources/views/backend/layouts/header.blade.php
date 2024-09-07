@@ -25,6 +25,13 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/daterangepicker/daterangepicker.css') }}">
+     <!-- Favicon -->
+     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/icons/favicon.png') }}" />
+     <link rel="manifest" href="{{ asset('frontend/images/icons/site.html') }}" />
+     <link rel="mask-icon" href="{{ asset('frontend/images/icons/safari-pinned-tab.html') }}" color="#666666" />
+     <link rel="shortcut icon" href="{{ asset('frontend/images/icons/favicon.ico') }}" />
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/summernote/summernote-bs4.min.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -48,16 +55,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
             </ul>
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
+            {{-- <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -181,17 +182,17 @@
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="http://fabrigan.com" class="brand-link">
                 <img src={{ asset('backend/dist/img/AdminLTELogo.png') }} alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                    class="brand-image" style="opacity: .8">
+                <span class="brand-text font-weight-light"><b>Fabrigan</b></span>
             </a>
 
             @include('backend.layouts.sidebar')

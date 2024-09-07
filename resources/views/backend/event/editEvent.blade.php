@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <label for="inputImage">Upload Event Image *:</label>
                             <input type="file" id="inputImage" name="image" class="form-control-file"
-                                accept="image/*" required>
+                                accept="image/*">
                             <div id="imagePreview" class="mt-2">
                                 @if ($event->image)
                                     <img src="{{ asset('uploads/events/' . $event->image) }}" alt="Image"

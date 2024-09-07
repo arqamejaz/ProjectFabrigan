@@ -28,7 +28,7 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="about-text text-center mt-3">
                             <h2 class="title text-center mb-2">Description </h2><!-- End .title text-center mb-2 -->
-                            {{ $category->description }}
+                            {!! nl2br(e($category->description)) !!}
                         </div><!-- End .about-text -->
                     </div><!-- End .col-lg-10 offset-1 -->
                 </div><!-- End .row -->

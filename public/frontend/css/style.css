@@ -69,8 +69,9 @@ body{
 }
 
 .logo-mobile img {
-    max-width: 100px; /* Adjust the max-width value as needed */
+    max-width: 200px; /* Adjust the max-width value as needed */
     height: auto;
+    margin-top: 10%
 }
 .logo-desktop {
     display: block;
@@ -93,6 +94,8 @@ body{
 .about-wrapper{
     display: flex;
 }
+/* Reverse the order on mobile screens */
+
 .swiper-button-next, .swiper-button-prev {
     font-size: 12px; /* Adjust the font size as needed */
     color: black; /* Change the color to black */
@@ -657,6 +660,13 @@ blockquote.text-white cite span{
     font-size: 1.3rem;
     flex-wrap: wrap; /* Allow wrapping of text */
 
+}
+.header-center{
+    text-align: center; /* Center-align the text */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically (if needed) */
+    height: 100%; /* Ensure it takes the full height of the parent container */
 }
 @media (max-width: 767px) {
     .header-left, .header-center, .header-right {
@@ -1846,7 +1856,7 @@ blockquote.text-white cite span{
 }
 .menu .megamenu,.menu ul{
     background-color:#fff;
-    box-shadow:5px 10px 16px rgba(51,51,51,0.05),-5px 10px 16px rgba(51,51,51,0.05)
+    box-shadow: rgba(0, 0, 0, 0.05) 0 -5px 15px;
 }
 .menu ul{
     min-width:218px;
@@ -2369,10 +2379,10 @@ blockquote.text-white cite span{
     top:0;
     bottom:0;
     z-index:1001;
-    background-color:#333;
+    background-color:#ebebeb;
     width:100%;
     max-width:280px;
-    overflow-y:scroll;
+    /* overflow-y:scroll; */
     box-shadow:0.1rem 0 0.6rem 0 rgba(51,51,51,0.5);
     will-change:transform;
     visibility:hidden;
@@ -2421,7 +2431,7 @@ blockquote.text-white cite span{
     cursor: pointer;
     font-size: 1.6rem;
     line-height: 1;
-    color: #fff;
+    color: #000000;
     transition: color .35s;
 }
 
@@ -2443,7 +2453,7 @@ blockquote.text-white cite span{
     cursor:pointer;
     font-size:1.6rem;
     line-height:1;
-    color:#fff;
+    color:#000000;
     transition:color .35s
 }
 
@@ -2460,10 +2470,10 @@ blockquote.text-white cite span{
     top: 0;
     bottom: 0;
     z-index: 1100;  /* Adjusted z-index to be above toggle button */
-    background-color: #333;
+    background-color: #e0e0e0;
     width: 100%;
     max-width: 280px;
-    overflow-y: scroll;
+    overflow-y:auto
     box-shadow: -0.1rem 0 0.6rem 0 rgba(51, 51, 51, 0.5);
     transition: all 0.4s ease;
     visibility: hidden;
@@ -2516,7 +2526,7 @@ blockquote.text-white cite span{
     position:relative;
     display:block;
     padding:1rem 4.5rem 1rem 2rem;
-    color:#fff;
+    color:#000000;
     border-bottom:0.1rem solid rgba(255,255,255,0.08)
 }
 .mobile-menu li a:hover,.mobile-menu li a:focus{
@@ -2570,7 +2580,7 @@ blockquote.text-white cite span{
     width:3rem;
     height:3rem;
     font-size:1.2rem;
-    color:#fff;
+    color:#000000;
     margin-top:-1.5rem;
     border-radius:0;
     background-color:transparent;
@@ -2603,7 +2613,7 @@ blockquote.text-white cite span{
     line-height:1.5;
     padding:.8rem 1.5rem;
     max-width:calc(100% - 36px);
-    background-color:#333;
+    background-color: #c5c5c5;
     border-color:rgba(255,255,255,0.1);
     border-right-width:0
 }
@@ -7992,7 +8002,7 @@ p{
     align-items:center;
     flex-flow:row wrap;
     display: inline-flex;
-    margin-left: 15%;
+    /* margin-left: 15%; */
 }
 .social-icon{
     display:flex;
@@ -8009,6 +8019,30 @@ p{
     text-decoration:none;
     opacity:1;
     transition:all .35s ease
+}
+.social-icon-mob{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.6rem;
+    width:4rem;
+    height:4rem;
+    color:black;
+    margin:0;
+    background-color:transparent;
+    border:.1rem solid #444444;
+    border-radius:50%;
+    text-decoration:none;
+    opacity:1;
+    transition:all .35s ease
+}
+.social-icons .social-icon {
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.social-icons .social-icon:hover {
+    color: red;
+    border-color: red;
 }
 .social-icon:not(:last-child){
     margin-right:1rem
@@ -8063,7 +8097,7 @@ p{
     margin-right:1rem
 }
 .social-icons-colored .social-icon.social-facebook{
-    color:#fff;
+    color:#000;
     border-color:#8f79ed;
     background-color:#8f79ed
 }
@@ -8151,7 +8185,7 @@ p{
     font-size:1.4rem;
     line-height:1.5;
     font-weight:300;
-    color:#777;
+    color:#000;
     background-color:#fafafa;
     border:1px solid #ebebeb;
     border-radius:0;
@@ -11029,7 +11063,7 @@ button:focus{
     font-family: 'Poppins';
     letter-spacing: 0;
     color: black;
-    padding: 50px 100px 10px 100px;
+    padding: 0px 10px 30px 10px;
     text-align: justify;
 }
 .dark-paragraph{
@@ -15968,4 +16002,14 @@ button:focus{
 /* custom css */
 .border_radios{
     border-radius: 2rem;
+}
+
+@media (max-width: 768px) {
+    #item-1{
+        margin: 40px 0;
+    }
+    #item-1 { order: 2; }
+    #item-2 { order: 3; }
+    #item-3 { order: 1; }
+
 }

@@ -9,8 +9,10 @@ $(document).ready(function () {
         loop: true,  // Enable loop mode
         slidesPerView: 1,  // Only one slide per view
         slidesPerGroup: 1,  // Move one slide at a time
+        spaceBetween: 10,
+        speed: 3000,
         autoplay: {
-            delay: 4500,
+            delay: 5000,
             disableOnInteraction: false,
         },
         pagination: {
@@ -25,6 +27,7 @@ $(document).ready(function () {
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 0,
+        loop: true,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
