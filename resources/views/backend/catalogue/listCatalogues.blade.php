@@ -31,6 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>Catalogue Name</th>
+                                        <th>Image</th>
                                         <th>Catalogue File</th>
                                         <th>Order #</th>
                                         <th>Action</th>
@@ -40,6 +41,7 @@
                                     @foreach($catalogues as $catalogue)
                                         <tr>
                                             <td>{{ $catalogue->name }}</td>
+                                            <td><img src="{{ asset('uploads/catalogues/'. $catalogue->image) }}" style="width: 80px; height: 80px" alt="{{ $catalogue->image }}"></td>
                                             <td>
                                                 @if ($catalogue->file_path)
                                                     <a href="{{ asset('pdfs/' . $catalogue->file_path) }}" target="_blank">

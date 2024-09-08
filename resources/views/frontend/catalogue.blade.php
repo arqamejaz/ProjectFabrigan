@@ -20,7 +20,7 @@
                         <div class="entry-item col-sm-6 col-md-4 mb-2">
                             <div class="category-feed banner banner-hover">
                                 <a href="{{ asset('uploads/catalogues/' . $catalogue->file_path) }}">
-                                    <img src="{{ url('frontend/images/demos/img/test1.jpg') }}" alt="catalogue"
+                                    <img src="{{ url('uploads/catalogues/'. $catalogue->image) }}" alt="catalogue"
                                         class="product-image">
                                 </a>
                             </div>

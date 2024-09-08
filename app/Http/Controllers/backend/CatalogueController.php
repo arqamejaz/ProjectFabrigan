@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Catalogue;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +36,7 @@ class CatalogueController extends Controller
             $file = $request->file('file');
 
             // Generate a unique file name with the current timestamp
-            $fileName = time() . '-' . $file->getClientOriginalName();
+            $fileName = time() . '-' . Str::random(10) . '-' . $file->getClientOriginalName();
 
             // Move the file to the public/pdfs directory
             $file->move(public_path('uploads/catalogues'), $fileName);
@@ -48,8 +49,8 @@ class CatalogueController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('uploads/events'), $imageName);
+                $imageName = time() . '-' . Str::random(10) . '-' . $image->getClientOriginalName();
+                $image->move(public_path('uploads/catalogues'), $imageName);
                 $catalogue->image = $imageName;
             }
             $catalogue->save();
