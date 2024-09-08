@@ -29,47 +29,39 @@
                     </div><!-- End .col-lg-10 offset-1 -->
                     <div>
                         <div class="wrapper about-wrapper">
-                            <div class="pt-3 col-lg-6 text-center about-div">
+                            <div class="pt-3 col-lg-6 text-center about-div" id="item-2">
                                 <h2>From Director</h2>
                                 <p class="dark-paragraph-about">{!! nl2br(e($about->directorMessage)) !!}</p>
                             </div>
-                            <div class="col-lg-6 about-div">
+                            <div class="col-lg-6 about-div" id="item-1">
                                 <img src={{ asset('uploads/aboutus/' . $about->image2) }} alt="">
                             </div>
-                        </div>
-                        <div class="wrapper about-wrapper">
-                            <div class="col-lg-6 about-div">
+                            <div class="col-lg-6 about-div" id="item-3">
                                 <img src={{ asset('uploads/aboutus/' . $about->image3) }} alt="">
                             </div>
-                            <div class="pt-5 col-lg-6 text-center about-div">
+                            <div class="pt-5 col-lg-6 text-center about-div" id="item-4">
                                 <h2>About Fabrigan</h2>
                                 <p class="dark-paragraph-about">{!! nl2br(e($about->about)) !!}</p>
                             </div>
-                        </div>
-                        <div class="wrapper about-wrapper">
-                            <div class="pt-5 col-lg-6 text-center about-div">
+                            <div class="pt-5 col-lg-6 text-center about-div" id="item-6">
                                 <h2>Our Journey</h2>
                                 <p class="dark-paragraph-about">{!! nl2br(e($about->journey)) !!}</p>
                             </div>
-                            <div class="col-lg-6 about-div">
+                            <div class="col-lg-6 about-div" id="item-5">
                                 <img src={{ asset('uploads/aboutus/' . $about->image4) }} alt="">
                             </div>
-                        </div>
-                        <div class="wrapper about-wrapper">
-                            <div class="col-lg-6 about-div">
+                            <div class="col-lg-6 about-div" id="item-7">
                                 <img src={{ asset('uploads/aboutus/' . $about->image5) }} alt="">
                             </div>
-                            <div class="pt-5 col-lg-6 text-center about-div">
+                            <div class="pt-5 col-lg-6 text-center about-div" id="item-8">
                                 <h2>Our Vision</h2>
-                                <p class="dark-paragraph-about">{!! nl2br(e($about->vision)) !!}}</p>
+                                <p class="dark-paragraph-about">{!! nl2br(e($about->vision)) !!}</p>
                             </div>
-                        </div>
-                        <div class="wrapper about-wrapper">
-                            <div class="pt-5 col-lg-6 text-center about-div">
+                            <div class="pt-5 col-lg-6 text-center about-div" id="item-10">
                                 <h2>Our Mission</h2>
                                 <p class="dark-paragraph-about">{!! nl2br(e($about->mission)) !!}</p>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" id="item-9">
                                 <img src={{ asset('uploads/aboutus/' . $about->image6) }} alt="">
                             </div>
                         </div>

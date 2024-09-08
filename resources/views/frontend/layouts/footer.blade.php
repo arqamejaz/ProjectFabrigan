@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-image text-center">
+<footer class="container-fluid text-center" style="background-color: black">
     <div class="footer-middle">
         <div class="container">
             <div class="row">

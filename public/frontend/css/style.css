@@ -93,6 +93,7 @@ body{
 }
 .about-wrapper{
     display: flex;
+    flex-wrap: wrap;
 }
 /* Reverse the order on mobile screens */
 
@@ -283,7 +284,7 @@ img{
     background-color:#a6c76c !important
 }
 .bg-image{
-    background-color:#000000;
+    background-color:#ffffff;
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat
@@ -11090,6 +11091,7 @@ button:focus{
 }
 @media (max-width: 767px) {
     .entry-item-new {
+        width: 50%;
         height: auto; /* Remove fixed height */
     }
 }
@@ -11097,7 +11099,7 @@ button:focus{
     width: 100%;
     height: 452px; /* Adjust to the previous video height */
     position: relative;
-    background-color: #ccc; /* Match the background if necessary */
+    background-color: #ffffff; /* Match the background if necessary */
     overflow: hidden;
 }
 @media (max-width: 767px) {
@@ -11113,7 +11115,7 @@ button:focus{
 }
 .entry-media{
     position:relative;
-    background-color:#ccc;
+    background-color:#ffff;
     margin-bottom:2.4rem;
     width: 100%;
     height: 209px;
@@ -16005,11 +16007,16 @@ button:focus{
 }
 
 @media (max-width: 768px) {
-    #item-1{
-        margin: 40px 0;
-    }
-    #item-1 { order: 2; }
-    #item-2 { order: 3; }
-    #item-3 { order: 1; }
+
+    #item-1 { order: 1; }
+    #item-2 { order: 2; }
+    #item-3 { order: 3; }
+    #item-4 { order: 4; }
+    #item-5 { order: 5; }
+    #item-6 { order: 6; }
+    #item-7 { order: 7; }
+    #item-8 { order: 8; }
+    #item-9 { order: 9; }
+    #item-10 { order: 10; }
 
 }
